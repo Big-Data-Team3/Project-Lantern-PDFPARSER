@@ -14,7 +14,7 @@ DATA_DIR = "data/raw"
 
 # Download Settings
 DEFAULT_FILING_TYPES = ['10-K', '10-Q']
-DEFAULT_COMPANIES = ['AAPL', 'MSFT', 'GOOGL']
+DEFAULT_COMPANIES = ['AAPL', 'MSFT', 'GOOGL', 'NVDA']
 MAX_FILINGS_PER_TYPE = 2
 
 def validate_config():
