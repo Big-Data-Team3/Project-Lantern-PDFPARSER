@@ -1,0 +1,15 @@
+sec-edgar-downloader>=5.0.0
+sec_downloader
+pandas>=1.5.0
+python-dotenv>=0.19.0
+sec-api>=1.0.0
+pdfplumber>=0.7.0
+pytesseract>=0.3.10
+Pillow>=9.0.0
+pdf2image>=1.16.0
+camelot-py[cv]>=0.11.0
+numpy>=1.26.4
+opencv-python>=4.9.0.80
+PyMuPDF>=1.24.10   
+langchain_community
+
