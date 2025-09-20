@@ -1,11 +1,14 @@
 """
-Unified PDF Extractor (Parts 1, 2, 3)
-- Text extraction with OCR fallback
-- Table extraction (Camelot stream + pdfplumber scoring)
-- Layout extraction (PyMuPDF with fonts, styles, colors, lists, images, links, tables)
-- Organized into subfolders: text/, json/, tables/, images/
+Unified PDF Extractor (Parts 1, 2, 3, 5)
+----------------------------------------
+- Part 1: Text extraction with OCR fallback
+- Part 2: Table extraction (Camelot + pdfplumber)
+- Part 3: Layout extraction (PyMuPDF: text, fonts, spans, lists, images, tables)
+- Part 5: Metadata & provenance tagging (JSONL, per-page JSON/MD, global Markdown)
 """
 
+import json
+import re
 import pdfplumber
 import pytesseract
 from pdf2image import convert_from_path
@@ -13,8 +16,6 @@ import camelot
 import pandas as pd
 import fitz  # PyMuPDF
 from pathlib import Path
-import json
-import re
 from ocr_config import test_ocr_setup
 
 
@@ -69,6 +70,7 @@ def classify_block(block, page_height):
 
 
 def detect_list_items(text):
+    import re
     list_pattern = re.compile(r"^(?:[-•*]|\d+\.)\s+")
     return [line.strip() for line in text.split("\n") if list_pattern.match(line.strip())]
 
@@ -84,6 +86,14 @@ def score_table(df: pd.DataFrame) -> float:
     ).sum().sum()
     numeric_ratio = numeric_cells / (rows * cols)
     return (rows * 0.1) + (cols * 0.2) + (numeric_ratio * 2)
+
+
+def parse_filename(doc_id: str):
+    match = re.match(r"([A-Za-z0-9]+).*?(\d{4})", doc_id)
+    if match:
+        company, year = match.groups()
+        return company, int(year)
+    return doc_id, None
 
 
 # =====================================================
@@ -149,7 +159,7 @@ class PDFTextExtractor:
 
 
 # =====================================================
-# Part 2 - Table Extraction (with metadata)
+# Part 2 - Table Extraction
 # =====================================================
 def extract_camelot(pdf_path, page_num):
     results = []
@@ -230,16 +240,14 @@ def process_tables(pdf_path, output_path):
 
 
 # =====================================================
-# Part 3 - Layout Extraction (with table metadata)
+# Part 3 - Layout Extraction
 # =====================================================
-def extract_layout(pdf_path, output_path, table_metadata, dpi=300):
+def extract_layout(pdf_path, output_path, table_metadata):
     img_dir = output_path / "images"
     img_dir.mkdir(parents=True, exist_ok=True)
 
     json_dir = output_path / "json"
     json_dir.mkdir(parents=True, exist_ok=True)
-
-    text_dir = output_path / "text"
 
     doc = fitz.open(pdf_path)
     global_layout = []
@@ -252,7 +260,6 @@ def extract_layout(pdf_path, output_path, table_metadata, dpi=300):
             "blocks": []
         }
 
-        # ---- Text blocks ----
         text_dict = page.get_text("dict")
         for block in text_dict["blocks"]:
             if "lines" not in block:
@@ -276,7 +283,6 @@ def extract_layout(pdf_path, output_path, table_metadata, dpi=300):
                 block_entry["list_items"] = list_items
             page_layout["blocks"].append(block_entry)
 
-        # ---- Links ----
         for link in page.get_links():
             if "uri" in link:
                 page_layout["blocks"].append({
@@ -285,7 +291,6 @@ def extract_layout(pdf_path, output_path, table_metadata, dpi=300):
                     "bbox": rect_to_list(link.get("from"))
                 })
 
-        # ---- Images ----
         for img_idx, img in enumerate(page.get_images(full=True), 1):
             xref = img[0]
             bbox = page.get_image_bbox(img)
@@ -304,7 +309,6 @@ def extract_layout(pdf_path, output_path, table_metadata, dpi=300):
                 "path": f"images/{img_path.name}"
             })
 
-        # ---- Tables ----
         if page_num in table_metadata:
             meta = table_metadata[page_num]
             page_layout["blocks"].append({
@@ -317,15 +321,108 @@ def extract_layout(pdf_path, output_path, table_metadata, dpi=300):
                 "score": meta["score"]
             })
 
-        # Save per-page JSON
         (json_dir / f"page{page_num:03d}.json").write_text(json.dumps(page_layout, indent=2), encoding="utf-8")
         global_layout.append(page_layout)
 
-    # Save global layout.json
     (output_path / "layout.json").write_text(json.dumps(global_layout, indent=2), encoding="utf-8")
 
     print(f"[LAYOUT] {pdf_path.name}: {len(global_layout)} pages exported (with table metadata)")
     return global_layout
+
+
+# =====================================================
+# Part 5 - Metadata & Provenance
+# =====================================================
+def build_metadata(parsed_dir):
+    parsed_dir = Path(parsed_dir)
+    layout_path = parsed_dir / "layout.json"
+    if not layout_path.exists():
+        raise FileNotFoundError(f"layout.json not found in {parsed_dir}")
+
+    layout = json.loads(layout_path.read_text())
+    doc_id = parsed_dir.name
+    company, fiscal_year = parse_filename(doc_id)
+
+    metadata_dir = parsed_dir / "metadata"
+    metadata_dir.mkdir(parents=True, exist_ok=True)
+
+    jsonl_path = metadata_dir / "metadata_provenance.jsonl"
+    md_path = metadata_dir / "metadata_provenance.md"
+
+    with open(jsonl_path, "w", encoding="utf-8") as jf:
+        for page in layout:
+            page_num = page["page"]
+            page_records = []
+            page_md_lines = [f"# Page {page_num}", ""]
+            current_section = "UNLABELED"
+
+            for block in page.get("blocks", []):
+                if block["type"] in ("title", "heading"):
+                    current_section = block["text"]
+
+                record = {
+                    "doc_id": doc_id,
+                    "company": company,
+                    "fiscal_year": fiscal_year,
+                    "page": page_num,
+                    "section": current_section,
+                    "block_type": block.get("type"),
+                    "bbox": block.get("bbox", []),
+                    "text": block.get("text", ""),
+                    "source_path": None,
+                }
+
+                if block["type"] == "table":
+                    record["source_path"] = block.get("csv")
+                    page_md_lines.append(f"[Table: {block['csv']} | rows={block.get('rows')}, cols={block.get('cols')}]")
+                elif block["type"] == "image":
+                    record["source_path"] = block.get("path")
+                    page_md_lines.append(f"![Image]({block['path']})")
+                elif block["type"] in ("title", "heading"):
+                    record["source_path"] = page.get("text_file")
+                    page_md_lines.append(f"## {block['text']}")
+                elif block["type"] == "paragraph":
+                    record["source_path"] = page.get("text_file")
+                    page_md_lines.append(block["text"])
+                elif block["type"] == "list":
+                    record["source_path"] = page.get("text_file")
+                    for item in block.get("list_items", []):
+                        page_md_lines.append(f"- {item}")
+
+                jf.write(json.dumps(record) + "\n")
+                page_records.append(record)
+
+            page_json_path = metadata_dir / f"metadata_provenance_page{page_num:03d}.json"
+            page_json_path.write_text(json.dumps(page_records, indent=2), encoding="utf-8")
+
+            page_md_path = metadata_dir / f"metadata_provenance_page{page_num:03d}.md"
+            page_md_path.write_text("\n".join(page_md_lines), encoding="utf-8")
+
+    print(f"JSONL knowledge base saved → {jsonl_path}")
+    print(f"Per-page JSON + Markdown files saved in → {metadata_dir}")
+
+    md_lines = [f"# Metadata Knowledge Base: {doc_id}", ""]
+    current_section = None
+    for page in layout:
+        for block in page.get("blocks", []):
+            if block["type"] in ("title", "heading"):
+                current_section = block["text"]
+                md_lines.append(f"## {current_section}")
+            elif block["type"] == "paragraph":
+                md_lines.append(block["text"])
+            elif block["type"] == "list":
+                for item in block.get("list_items", []):
+                    md_lines.append(f"- {item}")
+            elif block["type"] == "table":
+                md_lines.append(f"[Table: {block['csv']} | rows={block.get('rows')}, cols={block.get('cols')}]")
+            elif block["type"] == "image":
+                md_lines.append(f"![Image]({block['path']})")
+        md_lines.append("")
+
+    md_path.write_text("\n".join(md_lines), encoding="utf-8")
+    print(f"[PART 5] Global Markdown knowledge base saved → {md_path}")
+
+    return jsonl_path, md_path, metadata_dir
 
 
 # =====================================================
@@ -343,6 +440,8 @@ def process_pdf(pdf_path, output_dir="../data/parsed"):
 
     layout = extract_layout(pdf_path, output_path, table_metadata)
 
+    build_metadata(output_path)
+
     return {
         "pages": pages,
         "ocr_pages": ocr_count,
@@ -352,9 +451,12 @@ def process_pdf(pdf_path, output_dir="../data/parsed"):
 
 
 if __name__ == "__main__":
-    pdf_files = list(Path("../data/raw").glob("NVIDIA_*.pdf"))
+    raw_dir = Path("../data/raw")
+    parsed_dir = Path("../data/parsed")
+
+    pdf_files = list(raw_dir.glob("NVIDIA_*.pdf"))
     for pdf_file in pdf_files:
         print(f"\nProcessing: {pdf_file.name}")
-        summary = process_pdf(pdf_file)
+        summary = process_pdf(pdf_file, parsed_dir)
         print(f"Summary: {summary}")
 
