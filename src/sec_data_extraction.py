@@ -1,4 +1,3 @@
-# src/download_nvidia_pdfs_and_xbrl.py
 import os
 import requests
 from sec_downloader import Downloader
@@ -57,7 +56,7 @@ def download_xbrl_from_metadata(metadata, save_dir="../data/raw"):
 dl = Downloader(COMPANY_NAME, EMAIL)
 
 metadatas = dl.get_filing_metadatas(
-    RequestedFilings(ticker_or_cik="NVDA", form_type="10-Q", limit=2)
+    RequestedFilings(ticker_or_cik="NVDA", form_type="10-K", limit=2)
 )
 
 print(f"Found {len(metadatas)} filings")
