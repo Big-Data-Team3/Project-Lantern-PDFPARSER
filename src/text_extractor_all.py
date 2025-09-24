@@ -4,7 +4,7 @@ Unified PDF Extractor (Parts 1–6)
 - Part 1: Text extraction with OCR fallback
 - Part 2: Table extraction (Camelot + pdfplumber, scored)
 - Part 3: Layout extraction (PyMuPDF: text, spans, fonts, images, tables)
-- Part 5: Metadata & provenance tagging (JSONL, per-page JSON/MD, global Markdown)
+- Part 5: Metadata & provenance tagging (JSONL, per-page JSON/MD, global Markdown + JSON with inline tables)
 - Part 6: Storage formats (Markdown, JSON, TXT exports)
 """
 
@@ -258,12 +258,27 @@ def process_pdf(pdf_path, output_dir="../data/parsed"):
         json.dumps(table_metadata, indent=2, ensure_ascii=False), encoding="utf-8"
     )
 
-    # ---- Part 5: Metadata & provenance ----
+    # =====================================================
+    # Part 5: Metadata & provenance (enhanced)
+    # =====================================================
     company, fiscal_year = parse_filename(pdf_name)
 
     metadata_dir = output_path / "metadata"
     jsonl_path = metadata_dir / "metadata_provenance.jsonl"
     md_path = metadata_dir / "metadata_provenance.md"
+
+    def normalize_list_item(text: str) -> str:
+        """Convert PDF bullets/numbers into Markdown list syntax."""
+        import re
+        return re.sub(r'^(?:[\u2022•\-\*\d]+\.)\s*', '- ', text.strip())
+
+    def heading_prefix(block_type: str) -> str:
+        """Return Markdown heading prefix based on block type."""
+        if block_type == "title":
+            return "#"
+        elif block_type == "heading":
+            return "##"
+        return ""  # paragraphs/lists/tables/images not headings
 
     with open(jsonl_path, "w", encoding="utf-8") as jf:
         for page in global_layout:
@@ -273,6 +288,7 @@ def process_pdf(pdf_path, output_dir="../data/parsed"):
             current_section = "UNLABELED"
 
             for block in page.get("blocks", []):
+                # Track section context
                 if block["type"] in ("title", "heading"):
                     current_section = block["lines"][0]["text"] if block.get("lines") else block.get("text", "")
 
@@ -284,27 +300,49 @@ def process_pdf(pdf_path, output_dir="../data/parsed"):
                     "section": current_section,
                     "block_type": block.get("type"),
                     "bbox": block.get("bbox", []),
-                    "text": "\n".join(line["text"] for line in block.get("lines", [])) if block.get("lines") else block.get("text", ""),
+                    "text": "\n".join(line["text"] for line in block.get("lines", []))
+                             if block.get("lines") else block.get("text", ""),
                     "source_path": None,
                 }
 
                 if block["type"] == "table":
                     record["source_path"] = block.get("csv")
-                    page_md_lines.append(f"[Table: {block['csv']} | rows={block.get('rows')}, cols={block.get('cols')}]")
+                    try:
+                        table_path = output_path / block["csv"]
+                        df = pd.read_csv(table_path).fillna("")
+                        table_md = df.to_markdown(index=False)
+                        record["table_markdown"] = table_md
+                        page_md_lines.append(table_md)
+                    except Exception as e:
+                        msg = f"[Table could not be rendered: {block.get('csv')}, error={e}]"
+                        record["table_markdown"] = msg
+                        page_md_lines.append(msg)
+
                 elif block["type"] == "image":
                     record["source_path"] = block.get("path")
                     page_md_lines.append(f"![Image]({block['path']})")
+
                 elif block["type"] in ("title", "heading"):
                     record["source_path"] = page.get("text_file")
-                    page_md_lines.append(f"## {record['text']}")
+                    prefix = heading_prefix(block["type"])
+                    page_md_lines.append(f"{prefix} {record['text']}")
+
                 elif block["type"] == "paragraph":
                     record["source_path"] = page.get("text_file")
                     for line in block.get("lines", []):
                         page_md_lines.append(line["text"])
 
+                elif block["type"] == "list":
+                    record["source_path"] = page.get("text_file")
+                    normalized_items = [normalize_list_item(item) for item in block.get("list_items", [])]
+                    for item in normalized_items:
+                        page_md_lines.append(item)
+                    record["list_markdown"] = "\n".join(normalized_items)
+
                 jf.write(json.dumps(record, ensure_ascii=False) + "\n")
                 page_records.append(record)
 
+            # Save per-page JSON + MD
             (metadata_dir / f"metadata_provenance_page{page_num:03d}.json").write_text(
                 json.dumps(page_records, indent=2, ensure_ascii=False),
                 encoding="utf-8"
@@ -314,24 +352,55 @@ def process_pdf(pdf_path, output_dir="../data/parsed"):
                 encoding="utf-8"
             )
 
-    # ---- Global provenance Markdown ----
+    # ---- Global provenance Markdown + JSON ----
     md_lines = [f"# Metadata Knowledge Base: {pdf_name}", ""]
+    global_json = []
+
     for page in global_layout:
         for block in page.get("blocks", []):
+            block_entry = {"page": page["page"], "type": block["type"], "text": ""}
             if block["type"] in ("title", "heading"):
-                md_lines.append(f"## {block['lines'][0]['text'] if block.get('lines') else block.get('text','')}")
+                text = block["lines"][0]["text"] if block.get("lines") else block.get("text", "")
+                prefix = heading_prefix(block["type"])
+                md_lines.append(f"{prefix} {text}")
+                block_entry["text"] = text
             elif block["type"] == "paragraph":
-                for line in block.get("lines", []):
-                    md_lines.append(line["text"])
+                text = "\n".join(line["text"] for line in block.get("lines", []))
+                md_lines.append(text)
+                block_entry["text"] = text
+            elif block["type"] == "list":
+                items = [normalize_list_item(item) for item in block.get("list_items", [])]
+                for item in items:
+                    md_lines.append(item)
+                block_entry["text"] = "\n".join(items)
             elif block["type"] == "table":
-                md_lines.append(f"[Table: {block['csv']} | rows={block['rows']}, cols={block['cols']}]")
+                try:
+                    table_path = output_path / block["csv"]
+                    df = pd.read_csv(table_path).fillna("")
+                    table_md = df.to_markdown(index=False)
+                    md_lines.append(table_md)
+                    block_entry["text"] = table_md
+                except Exception as e:
+                    msg = f"[Table could not be rendered: {block.get('csv')}, error={e}]"
+                    md_lines.append(msg)
+                    block_entry["text"] = msg
             elif block["type"] == "image":
                 md_lines.append(f"![Image]({block['path']})")
+                block_entry["text"] = f"[Image: {block['path']}]"
+            global_json.append(block_entry)
         md_lines.append("")
 
     md_path.write_text("\n".join(md_lines), encoding="utf-8")
 
-    # ---- Part 6: Formats ----
+    # Also save global JSON with inline tables
+    (output_path / f"{pdf_name}_with_tables.json").write_text(
+        json.dumps(global_json, indent=2, ensure_ascii=False),
+        encoding="utf-8"
+    )
+
+    # =====================================================
+    # Part 6: Formats (unchanged)
+    # =====================================================
     (output_path / f"{pdf_name}.md").write_text("\n".join(md_lines), encoding="utf-8")
     (output_path / f"{pdf_name}.json").write_text(
         json.dumps(global_layout, indent=2, ensure_ascii=False), encoding="utf-8"
