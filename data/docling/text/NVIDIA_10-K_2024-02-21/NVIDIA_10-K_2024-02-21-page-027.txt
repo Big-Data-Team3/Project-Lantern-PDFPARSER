@@ -1,0 +1,36 @@
+Tableof Contents
+toacquirelicensesfortheirproducts.
+Managementof thesenewlicensesandotherrequirementsiscomplicatedand timeconsuming.Ourcompetitivepositionhasbeen
+orotherextendedserviceobligations,iftheUsGdoesnotgrantlicensesinatimelymannerordenieslicensestosignificant
+customers or if we incur significant transition costs. Even if the UsG grants any requested licenses, the licenses may be temporary
+or imposeburdensome conditions thatweorour customersor endusers cannot or choosenot tofulfill.Thelicensingrequirements
+maybenefitcertainofourcompetitors,asthelicensingprocesswillmakeourpre-saleandpost-saletechnicalsupporteffortsmore
+cumbersome and less certain and encourage customers in China to pursue alternatives to our products, including semiconductor
+suppliersbasedinChina,Europe,and Israel.
+exportcontrolrulesatanytimeandfurthersubjectawiderrangeofourproductstoexportrestrictionsandlicensingrequirements,
+products andmaybeunabletodevelopreplacement productsnotsubjectto thelicensingrequirements,effectivelyexcluding us
+s
+alreadyimposedconditions tolimit theabilityof foreignfirmsto create and offer asaservicelarge-scale GPUclusters,for example
+by imposing licenseconditions ontheuse ofproducts tobeexported tocertain countries,or byrequiring chiptracking and throttling
+mechanisms that would disable or impair GPUs if certain system or use conditions are detected. The USG has already imposed
+exportcontrolsrestrictingcertaingamingGPUs,and if theUSGexpandssuchcontrolstorestrict additionalgamingproducts,it may
+China, including the U.S. and Europe. Export controls may disrupt our supply and distribution chain for a substantial portion of our
+products,which arewarehoused inand distributed fromHongKong.Export controlsrestricting our ability to sell datacenter GPUs
+createlargeclustersforfrontiermodeltraining.Anynewcontrolthatimpactsawiderrangeofourproductswouldlikelyhavea
+disproportionateimpactonNViDlAandmaydisadvantageusagainstcertainofourcompetitorsthatsellchipsthatareoutsidethe
+and otherimpactedregions to“design-out"certainU.S.semiconductorsfrom theirproducts toreduce thecomplianceburden and
+risk,and toensure that they areabletoservemarketsworldwide.Excessiveorshifting exportcontrolshavealreadyencouraged and
+NVIDlA or other U.S. firms,harming our business, market position, and financial results.As a result, excessive or shifting export
+controls may negativelyimpact demandfor ourproducts and services not only in China,but also in other markets,such asEurope,
+Latin America, and Southeast Asia. Excessive or shifting export controls increase the risk of investing in U.S. advanced
+semiconductorproducts,becausebythe timea newproductisreadyformarket,it maybesubject tonewunilateralexport controls
+restrictedbyU.S.controls.
+containing components made by our partners and suppliers. For example, the Chinese government announced restrictions relating
+Finally,ourbusinessdependsonour abilitytoreceive consistentandreliable supplyfromour overseaspartners,especiallyin
+Taiwan. Any new restrictions that negatively impact our ability to receive supply of components, parts, or services from Taiwan,
+Increased scrutiny from shareholders, regulators and others regarding our corporate sustainability practices could result
+withus.
+Shareholder advocacy groups, certain investment funds, other market participants, shareholders, customers and government
+regulators have focused increasingly on corporate sustainability practices and disclosures, including those associated with climate
+ordisclosurecontrolsmaynotmeetevolvingshareholder,
+27

@@ -1,0 +1,41 @@
+Table of Contents
+Adverse developmentsaffectingfinancial institutions,suchasbankfailures or instability,or concerns orspeculationabout similar
+eventsorrisks,couldleadtomarket-wideliquidityproblemsandotherdisruptions,whichcouldimpactourcustomers'abilitytofulfill
+their payment obligations to us, our vendors' ability to fulfill their contractual obligations to us, or our ability to fulfill our own
+obligations.
+credit, liquidity, market and interest rate risks, which may be exacerbated by market downturns or events that affect global financial
+markets, as described above. A majority of our investment portfolio comprises UsG securities. A decline in global financial markets
+forlongperiodsoradowngradeof theUSGcreditratingduetoanactualorthreateneddefaultongovernmentdebtcouldresult in
+higher interest rates, a decline in the value of theU.S.dollar, reduced market liquidity or other adverse conditions.These factors
+business.
+Wesellourproductsinternationally,andwealsohaveoperationsandconductbusinessinternationally.Oursemiconductorwafers
+are manufactured,assembled,tested andpackaged by third partieslocated outside of theUnitedStates,and we generated 56% of
+ourrevenueinfiscalyear2024fromsalesoutsideoftheUnitedStates.OursalestoChinadecreasedasapercentageoftotalData
+shiprestrictedproducts toChina,wehave startedtoship alternatives totheChina market insmallvolumes.China represented a
+andwe expectChina tobe ina similarrangeinthefirst quarter offiscalyear2025.The globalnature of ourbusinesssubjectsus to
+business,financialconditionandresultsofoperations.Theseincludedomesticandinternationaleconomicandpoliticalconditionsin
+countries in which we and our suppliers and manufacturers do business, government lockdowns to control case spread of global or
+local health issues,differing legal standardswithrespect to protection of IP and employment practices,different domesticand
+international business and cultural practices, disruptions to capital markets, counter-inflation policies, currency fluctuations, natural
+disasters,actsofwarorothermilitaryactions,terrorism,publichealthissuesandothercatastrophicevents.
+software or hardware failures, loss of data or other information technology assets, and other cyber-attacks are becoming
+measures.
+Cyber-attacks,includingransomware attacks by organizedcriminalthreat actors,nation-states,andnation-state-supported actors,
+affectedbytheattack,orifrestoringfrombackupsisdelayedornotfeasible.
+Individuals, groups of hackers and sophisticated organizations, including nation-states and nation-state-supported actors, and other
+other major conflicts, we and the third parties we rely upon may be vulnerable to a heightened risk of cyber-attacks that could
+materiallydisruptourabilitytoprovideservicesandproducts.Wemayalsofacecybersecuritythreatsduetoerrororintentional
+misconductbyemployees，contractorsorotherthird-partyserviceproviders.Certainaspectsofeffectivecybersecurityare
+dependent upon our employees, contractors and/or other third-party service providers safeguarding our sensitive information and
+adheringto our security policies and accesscontrolmechanisms.Wehave in the past experienced，andmay inthe future
+experience，securityincidentsarisingfromafailuretoproperlyhandlesensitiveinformationoradheretooursecuritypoliciesand
+assurance that aninsider threatwill notresult in anincident thatis material tous.Furthermore,werely onproductsand services
+provided by third-party suppliers to operate certain critical business systems, including without limitation, cloud-based infrastructure,
+business disruptions.We cannot guarantee that third parties and infrastructure in our supply chain or our partners' supply chains
+disruption to our information technology systems, including our products and services, or the third-party information technology
+train our algorithms. These datasets may be flawed, insufficient, or contain certain biased information,and may otherwise be
+vulnerable to security incidents. We may have limited insight into the data privacy or security practices of third-party suppliers,
+including for our Al algorithms. Our ability to monitor these third parties' information security practices is limited, and they may not
+have adequate information security measures in place. In addition, if one of our third-party suppliers suffers a security incident
+(whichhashappenedinthe
+20

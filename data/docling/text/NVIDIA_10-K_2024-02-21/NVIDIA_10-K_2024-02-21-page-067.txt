@@ -1,0 +1,124 @@
+Table of Contents
+NVIDIACorporationandSubsidiaries
+NotestotheConsolidatedFinancialStatements
+(Continued)
+Note9-FairValueofFinancialAssetsandLiabilitiesandInvestmentsinNon-AffiliatedEntities
+Thefairvaluesof ourfinancialassets and liabilities aredetermined usingquotedmarketprices of identical assets or quotedmarket
+pricesofsimilarassetsfromactivemarkets.Wereviewfairvaluehierarchyclassificationonaquarterlybasis.
+Fair Value at
+Pricing Category
+Jan28,2024
+Jan29,2023
+(In millions)
+Assets
+Cashequivalents and marketable securities:
+Money market funds
+Level 1
+$
+3,031
+$
+1,777
+Corporate debt securities
+Level 2
+$
+10,152
+$
+4,797
+Debt securities issued by the U.S. Treasury
+Level 2
+$
+9,524
+$
+4,142
+DebtsecuritiesissuedbyU.S.governmentagencies
+Level 2
+$
+2,333
+$
+1,834
+Certificates of deposit
+Level 2
+$
+510
+$
+365
+Foreign government bonds
+Level 2
+$
+174
+$
+140
+Other assets (Investment in non-affiliated entities):
+Publicly-held equity securities
+Level 1
+$
+225
+$
+11
+Liabilities (1)
+0.309%NotesDue2023
+Level 2
+$
+$
+1,230
+0.584%NotesDue 2024
+Level 2
+$
+1,228
+$
+1,185
+3.20%NotesDue 2026
+Level 2
+$
+970
+$
+966
+1.55% Notes Due 2028
+Level 2
+$
+1,115
+$
+1,099
+2.85%NotesDue2030
+Level 2
+$
+1,367
+$
+1,364
+2.00%NotesDue2031
+Level 2
+$
+1,057
+$
+1,044
+3.50% Notes Due 2040
+Level 2
+$
+851
+$
+870
+3.50%NotesDue 2050
+Level 2
+$
+1,604
+$
+1,637
+3.70%Notes Due 2060
+Level 2
+$
+403
+$
+410
+(1)Theseliabilities arecarried on our Consolidated BalanceSheets at theiroriginal issuancevalue,net of unamortized debt discount and issuance costs.
+InvestmentsinNon-AffiliatedEntities
+Our investments in non-affliated entities include marketable equity securities,which are publicly traded,and non-marketable equity
+securities,whichareprimarilyinvestments inprivatelyheld companies.Ourmarketableequitysecuritieshavereadilydeterminable
+fairvaluesandarerecordedaslong-termotherassetsonourConsolidatedBalanceSheetsatfairvaluewithchangesinfairvalue
+recordedinOtherincomeandexpense,netonourConsolidatedStatementsofIncome.Marketableequitysecuritiestotaled$225
+million and $11 million as of January28,2024 and January 29,2023,respectively.The net unrealized and realized gains and losses
+of investments inmarketable securitiesnet werenot significant forfiscalyears2024,2023 and2022.
+Our non-marketable equity securities are recorded in long-term other assets on our Consolidated Balance Sheets. The carrying
+valueofournon-marketableequitysecuritiestotaled$1.3billionand$288millionasofJanuary28,2024andJanuary29,2023,
+respectively.Gainsand lossesontheseinvestments,realized andunrealized,arerecognizedinOtherincomeandexpense,neton
+ourConsolidatedStatementsofIncome.
+67
