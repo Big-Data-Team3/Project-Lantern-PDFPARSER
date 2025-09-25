@@ -24,3 +24,9 @@ google-cloud-documentai>=2.30.0  # Google Document AI client (Part 7)
 
 # LangChain community utils (if needed later)
 langchain_community
+
+#Part 4 Docling
+docling
+docling-core>=2.25
+tabulate
+rapidocr-onnxruntime
