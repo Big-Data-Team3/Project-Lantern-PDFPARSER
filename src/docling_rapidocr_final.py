@@ -10,11 +10,40 @@ from docling.datamodel.base_models import InputFormat
 from docling.datamodel.pipeline_options import PdfPipelineOptions
 from docling.document_converter import DocumentConverter, PdfFormatOption
 from docling_core.types.doc import PictureItem, TableItem
+import platform
 
-log = logging.getLogger("docling_rapidocr_extraction")
+
+def get_poppler_path():
+    if platform.system() == "Windows":
+        candidates = [
+            r"C:\poppler-25.07.0\Library\bin",  # your install
+            r"C:\Program Files\poppler\bin",
+            r"C:\Program Files (x86)\poppler\bin",
+        ]
+        for c in candidates:
+            if Path(c).exists():
+                return c
+        return None
+    else:
+        return None
+
 
 def main():
-    logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
+    # === Directory setup ===
+    base_dir = Path("../data/docling")
+    base_dir.mkdir(parents=True, exist_ok=True)
+
+    # === Logging setup ===
+    log_file = base_dir / "docling_extraction.log"
+    logging.basicConfig(
+        level=logging.INFO,
+        format="%(asctime)s - %(levelname)s - %(message)s",
+        handlers=[
+            logging.StreamHandler(),
+            logging.FileHandler(log_file, mode="w", encoding="utf-8")
+        ]
+    )
+    log = logging.getLogger("docling_rapidocr_extraction")
 
     input_pdfs = sorted(Path("../data/raw").glob("*.pdf"))
     if not input_pdfs:
@@ -24,9 +53,10 @@ def main():
     doc_stem = input_pdf.stem
 
     log.info(f"Input: {input_pdf.name}")
+    start_total = time.time()
     log.info("Starting Docling conversion with RapidOCR fallback...")
 
-    # Use Docling (with default OCR off)
+    # === Docling setup ===
     pipe_opts = PdfPipelineOptions(
         force_ocr=False,
         ocr_engine="none",
@@ -42,8 +72,7 @@ def main():
     doc = conv_res.document
     log.info(f"Conversion complete in {time.time() - start:.2f} seconds.")
 
-    # === Directory setup ===
-    base_dir = Path("../data/docling")
+    # === Subdirs ===
     images_dir = base_dir / "images" / doc_stem
     tables_dir = base_dir / "tables" / doc_stem
     text_dir = base_dir / "text" / doc_stem
@@ -54,25 +83,41 @@ def main():
 
     # === Save full JSON ===
     full_json_path = json_dir / f"{doc_stem}.json"
+    with open(full_json_path, "w", encoding="utf-8") as f:
+        json.dump(doc.model_dump(mode="json"), f, indent=2, ensure_ascii=False)
+    log.info(f"Full document JSON → {full_json_path}")
+
+    # === Save full Markdown ===
+    full_md_path = md_dir / f"{doc_stem}.md"
+    with open(full_md_path, "w", encoding="utf-8") as f:
+        f.write(doc.export_to_markdown())
+    log.info(f"Full document Markdown → {full_md_path}")
+
+    # === Save full Text (clean, from dict) ===
+    full_txt_path = text_dir / f"{doc_stem}.txt"
     try:
-        with open(full_json_path, "w", encoding="utf-8") as f:
-            json.dump(doc.model_dump(mode="json"), f, indent=2, ensure_ascii=False)
-        log.info(f"Full document JSON → {full_json_path}")
+        doc_dict = doc.export_to_dict()
+        text_blocks = []
+        for page in doc_dict.get("pages", []):
+            if isinstance(page, dict):
+                for block in page.get("blocks", []):
+                    if isinstance(block, dict) and block.get("category") == "text" and block.get("text"):
+                        text_blocks.append(block["text"])
+        with open(full_txt_path, "w", encoding="utf-8") as f:
+            f.write("\n\n".join(text_blocks))
+        log.info(f"Full document Text → {full_txt_path}")
     except Exception as e:
-        log.warning(f"Failed to save full JSON: {e}")
+        log.warning(f"Failed to save full Text: {e}")
 
     # === Save Images ===
     picture_count = 0
     for element, _level in doc.iterate_items():
         if isinstance(element, PictureItem):
-            try:
-                img = element.get_image(doc)
-                out_path = images_dir / f"{doc_stem}-picture-{picture_count+1:03}.png"
-                img.save(out_path, "PNG")
-                log.info(f"Saved image → {out_path}")
-                picture_count += 1
-            except Exception as e:
-                log.warning(f"Failed to save picture {picture_count+1}: {e}")
+            img = element.get_image(doc)
+            out_path = images_dir / f"{doc_stem}-picture-{picture_count+1:03}.png"
+            img.save(out_path, "PNG")
+            log.info(f"Saved image → {out_path}")
+            picture_count += 1
     if picture_count == 0:
         log.warning("No images were extracted.")
 
@@ -80,34 +125,36 @@ def main():
     table_count = 0
     for element, _level in doc.iterate_items():
         if isinstance(element, TableItem):
-            try:
-                df = element.export_to_dataframe(doc=doc)
-                out_path = tables_dir / f"{doc_stem}-table-{table_count+1:03}.csv"
-                df.to_csv(out_path, index=False)
-                log.info(f"📊 Saved table → {out_path}")
-                table_count += 1
-            except Exception as e:
-                log.warning(f"Failed to save table {table_count+1}: {e}")
+            df = element.export_to_dataframe(doc=doc)
+            out_path = tables_dir / f"{doc_stem}-table-{table_count+1:03}.csv"
+            df.to_csv(out_path, index=False)
+            log.info(f"Saved table → {out_path}")
+            table_count += 1
     if table_count == 0:
         log.warning("No tables were extracted.")
 
-    # === Load all pages as images once ===
-    page_images = convert_from_path(str(input_pdf), dpi=300)
+    # === Load all pages as images once (for OCR fallback) ===
+    page_images = convert_from_path(str(input_pdf), dpi=300, poppler_path=get_poppler_path())
 
     # === Load RapidOCR ===
     ocr = RapidOCR()
 
     # === Per-page processing ===
+    total_pages = len(doc.pages)
     for page in doc.pages.values():
         page_no = page.page_no
+        start_page = time.time()
+        log.info(f"Processing page {page_no}/{total_pages}...")
+
         txt_path = text_dir / f"{doc_stem}-page-{page_no:03}.txt"
         md_path = md_dir / f"{doc_stem}-page-{page_no:03}.md"
         json_path = json_dir / f"{doc_stem}-page-{page_no:03}.json"
 
         blocks = getattr(page, "blocks", [])
+        extracted_text = ""
         try:
             extracted_text = "\n".join(b.text for b in blocks if hasattr(b, "text"))
-        except:
+        except Exception:
             extracted_text = ""
 
         # === Save native Docling text or fallback ===
@@ -115,7 +162,8 @@ def main():
             with open(txt_path, "w", encoding="utf-8") as f:
                 f.write(extracted_text)
             with open(md_path, "w", encoding="utf-8") as f:
-                f.write("\n\n".join(f"### Block {i+1}\n\n{b.text}" for i, b in enumerate(blocks) if hasattr(b, "text")))
+                f.write("\n\n".join(f"### Block {i+1}\n\n{b.text}"
+                                    for i, b in enumerate(blocks) if hasattr(b, "text")))
             log.info(f"Page {page_no:03}: Extracted via Docling → {txt_path}")
         else:
             try:
@@ -141,7 +189,10 @@ def main():
         except Exception as e:
             log.warning(f"Page {page_no:03}: Failed to save page JSON - {e}")
 
-    log.info("All extraction done!")
+        log.info(f"Page {page_no:03} processed in {time.time() - start_page:.2f} sec")
+
+    log.info(f"All extraction done in {time.time() - start_total:.2f} sec (see log file at {log_file})")
+
 
 if __name__ == "__main__":
     main()
