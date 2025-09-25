@@ -1,0 +1,34 @@
+Table of Contents
+or previously sold products may be resold online or on the unauthorized“gray market,” which also makes demand forecasting
+Additionally,we depend on developers,customers and other third parties tobuild,enhance，and maintain accelerated computing
+on our platforms, such as GeForce Now. Failure by developers, customers, and other third parties to build, enhance, and maintain
+applications that leverage our platforms, or failure by third-party content providers or publishers to make their content available on
+reasonabletermsoratallforusebyourcustomersorendusersonourplatforms,couldadverselyaffectcustomerdemand.
+reduces our control over product quantity and quality, manufacturing yields, and product delivery schedules and could
+harm our business.
+We depend on foundries to manufacture our semiconductor wafers using their fabrication equipment and techniques.We do not
+assemble,test, or package our products, but instead contract with independent subcontractors. These subcontractors assist with
+procuring components used in our systems, boards, and products. We face several risks which have adversely affected or could
+timely manner;
+failure by our foundries or contract manufacturers to procure raw materials or provide adequate levels of manufacturing or
+testcapacityforourproducts;
+manufacture our products;
+limited number and geographic concentration of global suppliers, foundries, contract manufacturers, assembly and test
+providers and memorymanufacturers;
+lossofasupplierandadditionalexpenseand/orproductiondelaysasaresultofqualifyinganewfoundryorsubcontractor
+andcommencingvolumeproductionor testingintheeventofaloss,additionorchangeof asupplier;
+lack of direct control over product quantity, quality and delivery schedules;
+qualification;
+subcontractorsorfoundriesprioritizeourcompetitors'or othercustomers'ordersoverours;
+advance;
+·
+low manufacturing yields resulting from a failure in our product design or a foundry's proprietary process technology; and
+·
+disruptions in manufacturing,assembly and other processes due to closures related toheat waves,earthquakes,fires,or
+othernaturaldisastersandelectricityconservationefforts.
+our reputation and cause us to lose market share.
+Our hardware and software product and service offerings are complex. They have in the past and may in the future contain defects
+orsecurityvulnerabilitiesorexperiencefailures orunsatisfactoryperformanceduetoanynumberofissues indesign,fabrication,
+packaging, materials, bugs and/or use within a system. These risks may increase as our products are introduced into new devices,
+markets, technologies and applications or as new versions are released. These risks further increase when we rely on partners to
+18

@@ -1,0 +1,37 @@
+Table of Contents
+immediately due and payable. Changes to our credit rating may negatively impact the value and liquidity of our securities,restrict our
+ability toobtainfuturefinancing and affect thetermsof anysuchfinancing.
+Delaware law and our certificate of incorporation, bylaws and agreement with Microsoft could delay or prevent a change in
+control.
+Provisions in our certificate of incorporation and bylaws could make it more difficult for a third party to acquire a majority of our
+actbywrittenconsentorcallspecialmeetings;advancenoticerequirementsfordirectornominationsandshareholderproposals;
+agreement with Microsoft for the Xbox, if someone makes an offer to purchase at least 30% of our outstanding common stock,
+Microsoft mayhavefirst and last rights of refusaltopurchase thestock.Theseprovisionscoulddelayorprevent a change incontrol
+of NvIDiA, discourage proxy contests, and make it more difficult for shareholders to elect directors of their choosing and to cause us
+totakeothercorporateactionstheydesire.
+Item1B.UnresolvedStaffComments
+Not applicable.
+Item 1C. Cybersecurity
+Risk management and strategy
+We have in place certain infrastructure, systems,policies, and procedures that are designed to proactively and reactively address
+processes outlined in frameworks such as the ISO 27oo1 international standard for Information Security and we evaluate and evolve
+governance experts, on risk management and strategy.
+Identifying, assessing, and managing cybersecurity risk is integrated into our overall risk management systems and processes, and
+we have in place cybersecurity and data privacy training and policies designed to (a) respond to new requirements in global privacy
+us evaluate cybersecurity risks that we may encounter when working with third parties that have access to confidential and other
+sensitivecompanyinformation.Wetakestepsdesignedtoensurethatsuchvendorshaveimplementeddataprivacyandsecurity
+controlsthathelpmitigatethecybersecurityrisksassociatedwiththesevendors.Weroutinelyassessourhigh-risksuppliers
+conformance to industry standards(e.g.,ISO 27001,ISO 28001,and C-TPAT),and we evaluate themfor additional information,
+product,andphysicalsecurityrequirements.
+Governance
+Informationsecurity matters,including managing and assessing risksfrom cybersecurity threats,remainunder the oversight of the
+Company'sBoardofDirectors,ortheBoard.TheAuditCommitteeoftheBoard,or theAuditCommittee,alsoreviewstheadequacy
+and effectiveness of the Company's information security policies and practices and the internal controls regarding information
+security risks. The Audit Committee receives regular information security updates from management, including our Chief Security
+SecurityOfficerandmembersofoursecurityteam.
+Our security efforts are managed by a team of executive cybersecurity, IT, engineering, operations, and legal professionals. We have
+established a cross-functional leadership team, consisting of executive-level leaders, that meets regularly to review cybersecurity
+matters and evaluate emerging threats. With oversight and guidance provided by the cross-functional leadership team, our
+information security teams refine our practices to address emerging security risks and changes inregulations. Our executive-level
+assessmentandmanagementofmaterialrisksfromcybersecuritythreats.OurChiefSecurityOfficer'scybersecurityexpertise
+31

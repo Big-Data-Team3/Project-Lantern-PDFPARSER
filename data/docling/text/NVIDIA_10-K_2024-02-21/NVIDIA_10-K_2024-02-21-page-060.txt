@@ -1,0 +1,55 @@
+Table of Contents
+NVIDlACorporationandSubsidiaries
+NotestotheConsolidatedFinancialStatements
+(Continued)
+RecentlyIssuedAccountingPronouncements
+RecentAccountingPronouncementsNotYetAdopted
+In November 2023,the Financial Accounting Standards Board, or FASB, issued a new accounting standard to provide for additional
+disclosures about significant expenses in operating segments. The standard is effective for our annual reporting for fiscal year 2025
+and for interim period reporting starting infiscal year 2026retrospectively.We are currently evaluating theimpact of this standard on
+ourConsolidatedFinancialStatements.
+InDecember2023,theFASBissuedanewaccountingstandardwhichprovidesfornewandchangestoincometaxdisclosures
+currentlyevaluating theimpactof thisstandardonourConsolidatedFinancialStatements.
+Note2-BusinessCombination
+TerminationoftheArmSharePurchaseAgreement
+In February2022,NViDlA and SoftBank Group Corp,or SoftBank,announced the termination of the Share Purchase Agreement
+wherebyNViDlAwouldhaveacquiredArmfromSoftBank.Thepartiesagreedtoterminateitduetosignificantregulatorychallenges
+preventing thecompletionof the transaction.Werecorded anacquisitionterminationcostof$1.4billion infiscalyear2023reflecting
+the write-off of the prepayment provided at signing.
+Note 3 - Leases
+Ourlease obligations primarily consist of operating leasesfor our headquarters complex,domestic and international office facilities,
+anddatacenterspace,withleaseperiodsexpiringbetweenfiscalyears2025and2035.
+Future minimumlease payments under our non-cancelable operating leases as of January 28,2024,are as follows:
+OperatingLease
+Obligations
+(In millions)
+Fiscal Year:
+2025
+$
+290
+2026
+270
+2027
+253
+2028
+236
+2029
+202
+2030andthereafter
+288
+Total
+1,539
+Less imputed interest
+192
+Presentvalueofnetfutureminimumleasepayments
+1,347
+Less short-term operating lease liabilities
+228
+Long-term operating lease liabilities
+$
+1,119
+In addition, we have operating leases, primarily for our data centers, that are expected to commence within fiscal year 2025 with
+lease terms of 1 to10 years for $1.1 billion.
+Operating lease expensesforfiscalyears 2024,2023,and 2022 were $269million,$193 million,$168million,respectively. Short-
+termandvariableleaseexpensesforfiscalyears2024,2023,and2022werenotsignificant.
+60
