@@ -1,0 +1,124 @@
+Table of Contents
+The following table sets forth,for the periods indicated, certain items in our Consolidated Statements of Income expressed as a
+percentage of revenue.
+YearEnded
+Jan 28, 2024
+Jan 29, 2023
+Revenue
+100.0 %
+100.0 %
+Cost of revenue
+27.3
+43.1
+Gross profit
+72.7
+56.9
+Operating expenses
+Researchanddevelopment
+14.2
+27.2
+Sales,generalandadministrative
+4.4
+9.1
+Acquisition termination cost
+5.0
+Total operating expenses
+18.6
+41.3
+Operating income
+54.1
+15.6
+Interest income
+1.4
+1.0
+Interest expense
+(0.4)
+(1.0)
+Other, net
+0.4
+(0.1)
+Other income (expense), net
+1.4
+(0.1)
+Incomebeforeincometax
+55.5
+15.5
+Income tax expense (benefit)
+6.6
+(0.7)
+Net income
+48.9 %
+16.2 %
+Reportable Segments
+RevenuebyReportableSegments
+YearEnded
+$
+%
+Jan 28, 2024
+Jan 29, 2023
+Change
+Change
+($ in millions)
+Compute & Networking
+$
+47,405
+$
+15,068
+$
+32,337
+215 %
+Graphics
+13,517
+11,906
+1,611
+14 %
+Total
+$
+60,922
+$
+26,974
+$
+33,948
+126 %
+OperatingIncomebyReportableSegments
+Year Ended
+$
+%
+Jan28,2024
+Jan 29, 2023
+Change
+Change
+($ in millions)
+Compute & Networking
+$
+32,016
+$
+5,083
+$
+26,933
+530 %
+Graphics
+5,846
+4,552
+1,294
+28 %
+All Other
+(4,890)
+(5,411)
+521
+(10)%
+Total
+$
+32,972
+$
+4,224
+$
+28,748
+681 %
+Compute&Networkingrevenue-Theyear-on-year increasewas due to higherData Center revenue.Compute grew 266% due to
+higher shipments of the NVIDIA Hopper GPU computing platform for the training and inference of LLMs, recommendation engines
+andgenerativeAlapplications.Networkingwasup133%duetohighershipmentsof InfiniBand.
+Graphics revenue -The year-on-year increase was led by growth in Gaming of 15% drivenby higher sell-in to partners following the
+normalizationofchannelinventorylevels.
+driven by higher revenue.
+39

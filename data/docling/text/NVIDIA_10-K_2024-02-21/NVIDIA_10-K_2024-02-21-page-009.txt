@@ -1,0 +1,36 @@
+Table of Contents
+Competition
+Themarketforourproductsisintenselycompetitiveandischaracterizedbyrapidtechnologicalchangeandevolvingindustry
+standards. We believe that the principal competitive factors in this market are performance, breadth of product offerings, access to
+customers and partners and distribution channels, software support, conformity to industry standard APls, manufacturing
+capabilities, processor pricing, and total system costs. We believe that our ability to remain competitive will depend on how well we
+areabletoanticipatethefeaturesandfunctionsthatcustomersandpartnerswilldemandandwhetherweareabletodeliver
+consistentvolumesof ourproductsat acceptablelevelsofqualityand atcompetitiveprices.Weexpectcompetitiontoincreasefrom
+both existing competitors and new market entrants with products that may be lower priced than ours or may provide better
+A significant source of competition comesfrom companies thatprovide orintend toprovide GPUs,CPUs,DPUs,embedded SoCs,
+and other accelerated, Al computing processor products, and providers of semiconductor-based high-performance interconnect
+marketing，financial，distribution and manufacturing resources thanwe do andmay be more able to adapt tocustomers or
+Our current competitors include:
+computing solutions,including solutions offered for Al, such as Advanced Micro Devices, Inc.，or AMD,Huawei
+TechnologiesCo.Ltd.,orHuawei,and Intel Corporation,orIntel;
+computing functionality as part of their internal solutions or platforms, such as Alibaba Group, Alphabet Inc., Amazon, Inc.,
+orAmazon,Baidu,Inc.,Huawei,and Microsoft Corporation,orMicrosoft;
+suppliers of Arm-based CPUs and companies that incorporate hardware and software for CPUs aspart of their internal
+solutionsorplatforms,suchasAmazon,Huawei,and Microsoft;
+suppliersofhardwareandsoftwareforSoCproductsthatareusedinserversorembeddedintoautomobiles,autonomous
+products and services, such as Tesla, Inc.; and
+networking products consisting of switches,network adapters (including DPUs), and cable solutions (including optical
+Huawei,Intel,LumentumHoldings,and Marvell Technology Group aswellas internal teamsof systemvendors and large
+cloudservicescompanies.
+Patents andProprietaryRights
+Werelyprimarilyona combination ofpatents,trademarks,trade secrets,employee and third-party nondisclosure agreements,and
+licensing arrangements to protect our IP in the United States and internationally. Our currently issued patents have expiration dates
+from February 2024 to August 2043.We have numerous patents issued, allowed, and pending in the United States and in foreign
+jurisdictions.Ourpatents andpendingpatent applicationsprimarilyrelateto ourproductsand thetechnologyused inconnectionwith
+countries in which our products are or may be manufactured or sold,including various countries inAsia,may not protect our
+products or IPrights to thesameextentasthelaws of theUnitedStates.Thisdecreased protection makes thepossibility of piracy of
+technologies based onsuch factors as:
+the location in which our products are manufactured;
+·
+thedegreetowhichIPlawsexistandaremeaningfullyenforcedindifferentjurisdictions;and
+9
