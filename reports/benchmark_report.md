@@ -18,9 +18,9 @@ This report consolidates runtime, memory, throughput, and cost benchmarking for 
 - **Runtime**: 293.14 sec
 - **Memory**: 302.83 MB
 
-## 📊 Stage-wise Performance & Global Metrics
+# 📊 Stage-wise Performance & Global Metrics
 
-# 📊 Benchmarks & Cost Analysis Report
+## 📊 Benchmarks & Cost Analysis Report
 
 ## Global Summary
 - **Total pages processed**: 85
