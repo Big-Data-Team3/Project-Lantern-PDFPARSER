@@ -30,3 +30,5 @@ docling
 docling-core>=2.25
 tabulate
 rapidocr-onnxruntime
+
+jiwer

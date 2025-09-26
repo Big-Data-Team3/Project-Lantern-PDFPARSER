@@ -4,7 +4,7 @@ IncludingGPUsandnetworking,NVIDlApowersover75%of thesupercomputersontheglobalTOP
 gamers, the market for PC GPUs is expanding because of the burgeoning population of live streamers, broadcasters, artists, and
 creators.With the advent of generative Al,we expect a broader set of PC users to choose NVIDlA GPUsfor running generative Al
 applicationslocallyontheirPC,whichiscriticalforprivacy,latency,andcost-sensitiveAlapplications.
-Professionalartists,architectsanddesignersuseNViDlApartnerproductsacceleratedwithour GPUsandsoftwareplatformfora
+Professionalartists,architectsanddesignersuseNViDlApartnerproductsacceleratedwithourGPUsandsoftwareplatformfora
 applicationswiththeirdataon-premises.
 1998.
 Our Businesses
@@ -16,7 +16,7 @@ andvirtualcomputing;automotiveplatformsforinfotainmentsystems;andOmniverseEnterp
 metaverseand3Dinternetapplications.
 OurMarkets
 Wespecializeinmarketswhere ourcomputingplatformscanprovidetremendousaccelerationforapplications.Theseplatforms
-incorporateprocessors,interconnects,software，algorithms,systems,andservicestodeliveruniquevalue.Ourplatformsaddress
+incorporateprocessors,interconnects,software，algorithms,systems,andservices todeliveruniquevalue.Ourplatforms address
 Data Center
 graphics and scientific computing, delivering significantly better performance and power efficiency relative to conventional CPU-only
 networking offerings typically delivered to customers as systems, subsystems, or modules, along with software and services.
