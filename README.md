@@ -118,7 +118,7 @@ GOOGLE_APPLICATION_CREDENTIALS=secrets/gcloud-key.json
 ## Repository Structure
 
 ```bash
-PROJECT-LANTERN/
+PROJECT-LANTERN-PDFPARSER/
 ├── data/
 │   ├── raw/              # SEC filings (PDF + XBRL)
 │   ├── parsed/           # pipeline outputs
@@ -139,6 +139,8 @@ PROJECT-LANTERN/
 │   └── .gitkeep
 ├── secrets/
 │   └── gcloud-key.json (NOT committed, add to .gitignore)
+├── reports/
+│   └──benchmark_report.md
 ├── dvc.yaml
 ├── requirements.txt
 ├── README.md
