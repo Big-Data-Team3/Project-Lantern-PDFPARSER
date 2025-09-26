@@ -3,13 +3,27 @@ from pathlib import Path
 import os, csv, json
 from PyPDF2 import PdfReader, PdfWriter
 
-# Point to your service account JSON
+# -------------------------------------------------------------------
+# Project paths
+# -------------------------------------------------------------------
+BASE_DIR = Path(__file__).resolve().parents[1]
+RAW_DIR = BASE_DIR / "data" / "raw"
+PARSED_DIR = BASE_DIR / "data" / "parsed"
+SECRETS_DIR = BASE_DIR / "secrets"
+
+RAW_DIR.mkdir(parents=True, exist_ok=True)
+PARSED_DIR.mkdir(parents=True, exist_ok=True)
+SECRETS_DIR.mkdir(parents=True, exist_ok=True)
+
+# Point to your service account JSON (default in secrets/gcloud-key.json)
 os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = os.getenv(
     "GOOGLE_APPLICATION_CREDENTIALS",
-    str(Path(__file__).resolve().parent.parent / "secrets/gcloud-key.json")
+    str(SECRETS_DIR / "gcloud-key.json")
 )
 
-
+# -------------------------------------------------------------------
+# Helpers
+# -------------------------------------------------------------------
 def extract_pages(pdf_path, out_path, start=1, end=15, max_pages=15):
     """
     Extract pages from 'start' to 'end' (1-based inclusive), but capped at max_pages.
@@ -107,8 +121,8 @@ def save_results(doc, output_dir, start_page=1, batch_tag=None):
     return table_count, metadata
 
 
-def process_docai(pdf_path, output_dir, project_id, location, processor_id,
-                  start_page=1, end_page=None, batch_size=15):
+def process_docai(pdf_path, output_dir=PARSED_DIR, project_id=None, location="us",
+                  processor_id=None, start_page=1, end_page=None, batch_size=15):
     """
     Splits PDF into ≤batch_size chunks (default 15),
     sends each chunk to DocAI, saves results, merges metadata.
@@ -163,8 +177,8 @@ def process_docai(pdf_path, output_dir, project_id, location, processor_id,
 
 if __name__ == "__main__":
     # Example run (replace IDs with your own)
-    pdf_path = "../data/raw/NVIDIA_10-K_2024-02-21.pdf"
-    output_dir = "../data/parsed"
+    pdf_path = RAW_DIR / "NVIDIA_10-K_2024-02-21.pdf"
+    output_dir = PARSED_DIR
     project_id = "docai-test-473000"
     location = "us"
     processor_id = "cd1280bfb6a64860"

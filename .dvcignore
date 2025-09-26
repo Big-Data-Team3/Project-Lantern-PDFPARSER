@@ -1,0 +1,32 @@
+# Virtual environments
+venv/
+.env
+*.venv
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Secrets
+secrets/
+secrets/*.json
+
+# Logs
+*.log
+
+# Data (let DVC manage large outputs)
+data/raw/*
+data/parsed/*
+data/docling/*
+!data/raw/.gitkeep
+!data/parsed/.gitkeep
+!data/docling/.gitkeep
+
+# Allow DVC-tracked metrics
+!tests/metrics_custom_only.json

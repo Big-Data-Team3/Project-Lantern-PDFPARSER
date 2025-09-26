@@ -1,0 +1,124 @@
+schema: '2.0'
+stages:
+  download:
+    cmd: python src/sec_data_extraction.py
+    deps:
+    - path: src/config.py
+      hash: md5
+      md5: 5e60f754249dd9175bae3b72b48091ec
+      size: 1362
+    - path: src/sec_data_extraction.py
+      hash: md5
+      md5: 4af06449e5f9494773247882b8eb85d1
+      size: 3507
+    outs:
+    - path: data/raw
+      hash: md5
+      md5: d751713988987e9331980363e24189ce.dir
+      size: 0
+      nfiles: 0
+  parse:
+    cmd: python src/text_extractor_all.py
+    deps:
+    - path: data/raw
+      hash: md5
+      md5: d751713988987e9331980363e24189ce.dir
+      size: 0
+      nfiles: 0
+    - path: src/docai_integration.py
+      hash: md5
+      md5: 5e65a2c59d813ffe36c9731c8c78f7b8
+      size: 7332
+    - path: src/ocr_config.py
+      hash: md5
+      md5: 08a16d12514aa97f53ae9501a3ec433e
+      size: 1691
+    - path: src/text_extractor_all.py
+      hash: md5
+      md5: 32b7ea854c9624e7d5e4be9e65f0382b
+      size: 31316
+    outs:
+    - path: data/parsed
+      hash: md5
+      md5: d751713988987e9331980363e24189ce.dir
+      size: 0
+      nfiles: 0
+  docling:
+    cmd: python src/docling_rapidocr_final.py
+    deps:
+    - path: data/raw
+      hash: md5
+      md5: d751713988987e9331980363e24189ce.dir
+      size: 0
+      nfiles: 0
+    - path: src/docling_rapidocr_final.py
+      hash: md5
+      md5: 6dd41dfb42d349ff7ffe8fffcea5132d
+      size: 16069
+    outs:
+    - path: data/docling
+      hash: md5
+      md5: d751713988987e9331980363e24189ce.dir
+      size: 0
+      nfiles: 0
+  metrics:
+    cmd: python src/error_rate_detection.py
+    deps:
+    - path: data/ground_truth/tables
+      hash: md5
+      md5: d793f011fd165e35c8960295e0f80558.dir
+      size: 5405
+      nfiles: 7
+    - path: data/ground_truth/text
+      hash: md5
+      md5: 9d0ed7f156ddc3f5e1ae95958119389a.dir
+      size: 49557
+      nfiles: 10
+    - path: data/parsed
+      hash: md5
+      md5: d751713988987e9331980363e24189ce.dir
+      size: 0
+      nfiles: 0
+    - path: src/error_rate_detection.py
+      hash: md5
+      md5: 2c2e74b3570c9415db36610b400edfb7
+      size: 12153
+    outs:
+    - path: tests/metrics_custom_only.json
+      hash: md5
+      md5: d0dcdbe8b230170a0231ba158207b061
+      size: 4233
+  tests:
+    cmd: pytest tests/error_test.py -v
+    deps:
+    - path: tests/error_test.py
+      hash: md5
+      md5: 98042368ac52d7db5781a8fdaac0656a
+      size: 1867
+    - path: tests/metrics_custom_only.json
+      hash: md5
+      md5: d0dcdbe8b230170a0231ba158207b061
+      size: 4233
+  xbrl_validate:
+    cmd: python src/xbrl_validate.py
+    deps:
+    - path: data/parsed
+      hash: md5
+      md5: d751713988987e9331980363e24189ce.dir
+      size: 0
+      nfiles: 0
+    - path: data/raw
+      hash: md5
+      md5: d751713988987e9331980363e24189ce.dir
+      size: 0
+      nfiles: 0
+    - path: src/xbrl_validate.py
+      hash: md5
+      md5: e75b30b44a927cf75c00ca7cc3a1a310
+      size: 8270
+    outs:
+    - path: data/xbrl_validation
+      hash: md5
+      md5: e1c4237578d4b1d3144243347e8d851d.dir
+      size: 1615083
+      nfiles: 2
