@@ -196,6 +196,11 @@ PROJECT-LANTERN-PDFPARSER/
 
 ---
 
+## 📘 Codelab
+Our full step-by-step walkthrough is published here:  
+👉 [Open Codelab](https://codelabs-preview.appspot.com/?file_id=1Ks-2sDrYw8s72LZVT1aIB7zW4f0vxWpnEIMCNa2xSCE#0)
+
+
 ## Contributions
 
 | Member                        | Contribution                                                                 |
