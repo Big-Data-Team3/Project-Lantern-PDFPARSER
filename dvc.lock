@@ -35,8 +35,8 @@ stages:
       size: 1691
     - path: src/text_extractor_all.py
       hash: md5
-      md5: 32b7ea854c9624e7d5e4be9e65f0382b
-      size: 31316
+      md5: 756e9e8b616ece1e27fdb8b53985aace
+      size: 31674
     outs:
     - path: data/parsed
       hash: md5
@@ -81,8 +81,8 @@ stages:
       nfiles: 0
     - path: src/error_rate_detection.py
       hash: md5
-      md5: 2c2e74b3570c9415db36610b400edfb7
-      size: 12153
+      md5: a8f0a3b2e194d056d555d563b62f6337
+      size: 20350
     outs:
     - path: tests/metrics_custom_only.json
       hash: md5
@@ -93,7 +93,7 @@ stages:
     deps:
     - path: tests/error_test.py
       hash: md5
-      md5: 98042368ac52d7db5781a8fdaac0656a
+      md5: 5c87342a74b63e06c095c22e346395f1
       size: 1867
     - path: tests/metrics_custom_only.json
       hash: md5
@@ -119,6 +119,6 @@ stages:
     outs:
     - path: data/xbrl_validation
       hash: md5
-      md5: e1c4237578d4b1d3144243347e8d851d.dir
+      md5: 7dd364ffea486fa98d5cd3e0f4b18419.dir
       size: 1615083
       nfiles: 2

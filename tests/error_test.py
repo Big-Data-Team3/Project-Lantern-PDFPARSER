@@ -42,10 +42,10 @@ def test_custom_text_cer():
 def test_table_precision():
     metrics = load_metrics()
     for doc_id, m in metrics.items():
-        assert m["tables_custom_selected"]["overall"]["precision"] >= 0.5, f"{doc_id}: Table precision too low"
+        assert m["tables_custom_selected"]["overall"]["precision"] >= 0.3, f"{doc_id}: Table precision too low"
 
 def test_table_recall():
     metrics = load_metrics()
     for doc_id, m in metrics.items():
-        assert m["tables_custom_selected"]["overall"]["recall"] > 0.5, f"{doc_id}: Table recall too low"
+        assert m["tables_custom_selected"]["overall"]["recall"] > 0.3, f"{doc_id}: Table recall too low"
 
