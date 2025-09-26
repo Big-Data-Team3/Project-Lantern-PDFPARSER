@@ -1,24 +1,24 @@
 TableofContents
 Risks Related to Regulatory, Legal, Our Stock and Other Matters
 Ouroperationscouldbeaffectedbythecomplexlaws,rulesandregulationstowhichourbusinessissubject,andpolitical
-competitionandantitrust;advertising:employment;productregulations;cybersecurity;environmental，health,andsafety
+competitionandantitrust;advertising;employment;product regulations;cybersecurity;environmental,health,andsafety
 manufacture and ship our products.There can be no assurance that our employees, contractors, suppliers,customers or agents will
 not violate applicable laws or the policies, controls,and procedures that we have designed to help ensure compliance with such
 laws, and violations could result in fines, criminal sanctions against us, our officers, or our employees, prohibitions on the conduct of
-ourbusiness,and damage to our reputation. Changes to the laws,rules and regulations to which we are subject, or changes to their
+ourbusiness,and damage to our reputation.Changes to the laws,rules and regulations to which we are subject, or changes to their
 interpretation and enforcement, could lead to materially greater compliance and other costs and/or further restrictions on our ability
 tomanufactureandsupplyourproductsandoperateourbusiness.Forexample,wemayfaceincreasedcompliancecostsasa
-cybersecurityvulnerabilitiesandrisks.Ourposition in marketsrelating toAlhasled toincreasedinterestinour businessfrom
+cybersecurityvulnerabilitiesand risks.Ourposition in marketsrelating toAlhasled toincreased interest in our businessfrom
 provider market as part of an ongoing inquiry into competition in those markets. We have also received requests for information from
 regulators in the European Union,the United Kingdom,and China regarding our sales of GPUs, our efforts to allocate supply,
 expecttoreceiveadditional requestsforinformationinthefuture.Governmentsandregulatorsareconsidering imposingrestrictions
-on the hardware，software,and systemsused to develop frontier foundation modelsandgenerative Al.If implemented，such
+on the hardware，software,and systemsused to develop frontier foundation models and generative Al.If implemented，such
 restrictions could increasethecosts andburdens tousand ourcustomers,delayorhaltdeploymentof newsystemsusing our
 products,and reduce the number of new entrants and customers,negativelyimpacting our business and financialresults. Revisions
-of orincrease toimport duties ortariffs,restrictions and controls onimportsorexports,or otherretaliatory actions,which could have
+of orincrease toimport duties ortariffs,restrictions and controls onimportsorexports,or otherretaliatoryactions,which could have
 an adverse effect on our business plans or impact the timing of our shipments. Additionally, changes in the public perception of
 governments in the regions where we operate or plan to operate could negatively impact our business and results of operations.
-Government actions,including trade protection and national and economic security policies of U.S. and foreign government bodies,
+Government actions,including trade protection and national and economic securitypolicies of U.S. and foreign government bodies,
 such as tariffs, import or export regulations, including deemed export restrictions and restrictions on the activities of U.S. persons,
 trade and economic sanctions, decrees, quotas or other trade barriers and restrictions could affect our ability to ship products,
 provideservicestoourcustomers andemployees,dobusinesswithoutanexport licensewithentitiesontheU.s.Department of
@@ -28,7 +28,7 @@ subjecttovariouspenaltiesavailableunder thelaws,anyofwhichcouldhaveamaterialanda
 operatingresultsandfinancialcondition.
 For example,inresponse to the war inUkraine,the United States and other jurisdictions imposed economic sanctions and export
 UkrainehasimpactedsalesinEMEAandmaycontinuetodosointhefuture.
-Theincreasingfocusontherisksandstrategicimportance ofAltechnologieshasresultedinregulatoryrestrictionsthattarget
+Theincreasingfocusontherisksandstrategicimportance ofAltechnologieshasresulted inregulatoryrestrictions that target
 ofourproductandserviceofferings.
 Concerns regarding third-partyuse of Al for purposes contrary to local governmentalinterests,including concernsrelating to the
 misuse ofAl applications,models,and solutions,hasresulted in and could in thefutureresultinunilateral ormultilateral restrictions
