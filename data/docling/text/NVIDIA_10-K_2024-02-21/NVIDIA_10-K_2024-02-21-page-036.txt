@@ -44,7 +44,7 @@ alsoincludeda$1.4billionacquisitionterminationchargerelated totheproposedArmtran
 MarketPlatformHighlights
 Data Center revenue for fiscal year 2024 was $47.5 billion,up 217% from fiscal year 2023.In Data Center, we launched Al inference
 platforms that combine our full-stack inference software with NVIDlA Ada, NVIDlA Hopper and NVIDIA Grace Hopper processors
-optimized for generative Al, LLMs and other Al workloads.We introduced NVIDlA DGX Cloud and Al Foundations to helpbusinesses
+optimized for generative Al, LLMsand otherAl workloads.Weintroduced NVIDlA DGX Cloud and AI Foundations to helpbusinesses
 customers.WeannouncedNViDlASpectrum-X,anacceleratednetworkingplatformforAl.
 Gaming revenue for fiscal year 2024 was $10.4 billion, up 15% from fiscal year 2023. In Gaming, we launched the GeForce RTX
 4060and4070GPUsbasedontheNVIDlAAdaLovelacearchitecture.WeannouncedNVIDlAAvatarCloudEngineforGames,a
