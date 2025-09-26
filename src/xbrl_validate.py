@@ -21,6 +21,17 @@ from datetime import datetime
 from difflib import SequenceMatcher
 import sys
 
+# === GLOBAL PATHS ===
+BASE_DIR = Path(__file__).resolve().parent.parent
+RAW_DIR = BASE_DIR / "data" / "raw"
+PARSED_DIR = BASE_DIR / "data" / "parsed"
+XBRL_VALIDATION_DIR = BASE_DIR / "data" / "xbrl_validation"
+
+
+# Ensure required dirs exist
+PARSED_DIR.mkdir(parents=True, exist_ok=True)
+XBRL_VALIDATION_DIR.mkdir(parents=True, exist_ok=True)
+
 
 # -----------------------------
 # Helpers
@@ -45,9 +56,9 @@ def parse_xbrl_instance(xbrl_file):
     return pd.DataFrame(facts)
 
 
-def load_pdf_tables(doc_id, parsed_dir="../data/parsed"):
+def load_pdf_tables(doc_id, parsed_dir=PARSED_DIR):
     """Load extracted tables (CSV or Excel) for a given doc_id"""
-    tables_dir = Path(parsed_dir) / doc_id / "tables"
+    tables_dir = parsed_dir / doc_id / "tables"
     dfs = []
 
     if not tables_dir.exists():
@@ -137,7 +148,7 @@ def cross_verify(xbrl_df, pdf_tables):
 
 def generate_report(doc_id, results_df):
     """Generate CSV + Markdown validation report"""
-    out_dir = Path("../data/parsed/xbrl_validation")
+    out_dir = XBRL_VALIDATION_DIR
     out_dir.mkdir(parents=True, exist_ok=True)
 
     # Save CSV
@@ -183,20 +194,24 @@ def main():
     if len(sys.argv) >= 2:
         doc_id = sys.argv[1]
     else:
-        parsed_dir = Path("../data/parsed")
-        candidates = [d for d in parsed_dir.iterdir() if d.is_dir()]
+        # Exclude validation/output folders from candidate doc_ids
+        candidates = [
+            d for d in PARSED_DIR.iterdir()
+            if d.is_dir() and d.name != "xbrl_validation"
+        ]
+
         if not candidates:
-            print("No parsed documents found in ../data/parsed")
+            print(f"No parsed documents found in {PARSED_DIR}")
             sys.exit(1)
         # Pick most recent folder
         doc_id = max(candidates, key=lambda d: d.stat().st_mtime).name
         print(f"No doc_id provided, using most recent: {doc_id}")
 
     # Prefer instance documents (usually *_htm.xml)
-    xbrl_files = list(Path("../data/raw").rglob(f"{doc_id}/*_htm.xml"))
+    xbrl_files = list(RAW_DIR.rglob(f"{doc_id}/*_htm.xml"))
 
     if not xbrl_files:  # fallback: any XML
-        xbrl_files = list(Path("../data/raw").rglob(f"{doc_id}/*.xml"))
+        xbrl_files = list(RAW_DIR.rglob(f"{doc_id}/*.xml"))
 
         if not xbrl_files:
             print(f"No XBRL file found for {doc_id}")

@@ -1,0 +1,52 @@
+stages:
+  download:
+    cmd: python src/sec_data_extraction.py
+    deps:
+      - src/sec_data_extraction.py
+      - src/config.py
+    outs:
+      - data/raw
+
+  parse:
+    cmd: python src/text_extractor_all.py
+    deps:
+      - src/text_extractor_all.py
+      - src/ocr_config.py
+      - src/docai_integration.py
+      - data/raw
+    outs:
+      - data/parsed
+
+
+  docling:
+    cmd: python src/docling_rapidocr_final.py
+    deps:
+      - src/docling_rapidocr_final.py
+      - data/raw
+    outs:
+      - data/docling
+
+  metrics:
+    cmd: python src/error_rate_detection.py
+    deps:
+      - src/error_rate_detection.py
+      - data/ground_truth/text
+      - data/ground_truth/tables
+      - data/parsed
+    outs:
+      - tests/metrics_custom_only.json
+
+  tests:
+    cmd: pytest tests/error_test.py -v
+    deps:
+      - tests/error_test.py
+      - tests/metrics_custom_only.json
+
+  xbrl_validate:
+    cmd: python src/xbrl_validate.py
+    deps:
+      - src/xbrl_validate.py
+      - data/raw
+      - data/parsed
+    outs:
+      - data/xbrl_validation
