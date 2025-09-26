@@ -1,0 +1,44 @@
+{
+  "doc_id": "NVIDIA_10-K_2025-02-26",
+  "timestamp": "2025-09-25T19:41:02.172886",
+  "total_xbrl_facts": 1523,
+  "results": {
+    "parsed": {
+      "total_pdf_numbers": 942,
+      "matches": 40,
+      "mismatches": 902,
+      "sample_mismatches": [
+        {
+          "file": "page002_best.csv",
+          "row": 4,
+          "col": "2",
+          "value": 13.0
+        },
+        {
+          "file": "page002_best.csv",
+          "row": 5,
+          "col": "2",
+          "value": 32.0
+        },
+        {
+          "file": "page002_best.csv",
+          "row": 6,
+          "col": "2",
+          "value": 32.0
+        },
+        {
+          "file": "page002_best.csv",
+          "row": 7,
+          "col": "2",
+          "value": 33.0
+        },
+        {
+          "file": "page002_best.csv",
+          "row": 8,
+          "col": "2",
+          "value": 33.0
+        }
+      ]
+    }
+  }
+}
