@@ -146,6 +146,57 @@ PROJECT-LANTERN-PDFPARSER/
 ├── README.md
 └── .env.example
 ```
+## ⚙️ DVC Pipeline
+
+Our project is orchestrated with **Data Version Control (DVC)** to ensure reproducibility of all stages.  
+The pipeline runs end-to-end from downloading raw SEC filings to validation against XBRL.
+
+### Pipeline Stages
+```yaml
+stages:
+  download:
+    cmd: python src/sec_data_extraction.py
+    deps:
+      - src/sec_data_extraction.py
+      - src/config.py
+    outs:
+      - data/raw
+
+  parse:
+    cmd: python src/text_extractor.py
+    deps:
+      - src/text_extractor.py
+      - src/ocr_config.py
+      - data/raw
+    outs:
+      - data/parsed
+
+  docai:
+    cmd: python src/docai_integration.py
+    deps:
+      - src/docai_integration.py
+      - data/raw
+    outs:
+      - data/parsed/*/docai
+
+  benchmarks:
+    cmd: python src/benchmark_runner.py
+    deps:
+      - src/benchmark_runner.py
+      - data/parsed
+    outs:
+      - reports/benchmarks.md
+      - data/benchmarks/summary_dual.json
+
+  xbrl_validate:
+    cmd: python src/xbrl_validate.py
+    deps:
+      - src/xbrl_validate.py
+      - data/raw
+      - data/parsed
+    outs:
+      - data/xbrl_validation
+
 
 ---
 
