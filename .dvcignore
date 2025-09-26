@@ -15,7 +15,18 @@ __pycache__/
 
 # Secrets
 secrets/
-*.json
+secrets/*.json
 
 # Logs
 *.log
+
+# Data (let DVC manage large outputs)
+data/raw/*
+data/parsed/*
+data/docling/*
+!data/raw/.gitkeep
+!data/parsed/.gitkeep
+!data/docling/.gitkeep
+
+# Allow DVC-tracked metrics
+!tests/metrics_custom_only.json
