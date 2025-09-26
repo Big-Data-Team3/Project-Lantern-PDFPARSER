@@ -1,10 +1,33 @@
+# Virtual environments
+venv/
 .env
-data/raw/*
-data/parsed/*
-!data/raw/.gitkeep
-!data/parsed/.gitkeep
+*.venv
+
+# Python cache
 __pycache__/
 *.pyc
-venv/
-# Only ignore service account key
-secrets/gcloud-key.json
+*.pyo
+*.pyd
+.pytest_cache/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Secrets
+secrets/
+*.json
+
+# Logs
+*.log
+
+# DVC cache (optional if you don't want Git to track it)
+.dvc/tmp/
+.dvc/cache/
+
+# Data outputs (DVC will track via .dvc files)
+data/raw/*
+data/parsed/*
+data/docling/*
+!data/raw/.gitkeep
+!data/parsed/.gitkeep
+!data/docling/.gitkeep

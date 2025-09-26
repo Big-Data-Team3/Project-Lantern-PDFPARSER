@@ -1,0 +1,19 @@
+schema: '2.0'
+stages:
+  download:
+    cmd: python src/sec_data_extraction.py
+    deps:
+    - path: src/config.py
+      hash: md5
+      md5: 5e60f754249dd9175bae3b72b48091ec
+      size: 1362
+    - path: src/sec_data_extraction.py
+      hash: md5
+      md5: 4af06449e5f9494773247882b8eb85d1
+      size: 3507
+    outs:
+    - path: data/raw
+      hash: md5
+      md5: f12b539a65701c8b2b76c6b166345aef.dir
+      size: 14763656
+      nfiles: 16
