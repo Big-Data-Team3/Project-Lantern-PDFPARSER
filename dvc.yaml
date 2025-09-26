@@ -15,11 +15,8 @@ stages:
       - src/docai_integration.py
       - data/raw
     outs:
-      - data/parsed/text
-      - data/parsed/tables
-      - data/parsed/images
-      - data/parsed/json
-      - data/parsed/metadata
+      - data/parsed
+
 
   docling:
     cmd: python src/docling_rapidocr_final.py
@@ -35,8 +32,7 @@ stages:
       - src/error_rate_detection.py
       - data/ground_truth/text
       - data/ground_truth/tables
-      - data/parsed/text
-      - data/parsed/tables
+      - data/parsed
     outs:
       - tests/metrics_custom_only.json
 
@@ -53,4 +49,4 @@ stages:
       - data/raw
       - data/parsed/tables
     outs:
-      - data/parsed/xbrl_validation
+      - data/xbrl_validation
