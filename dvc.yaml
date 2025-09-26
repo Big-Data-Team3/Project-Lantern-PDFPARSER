@@ -47,6 +47,6 @@ stages:
     deps:
       - src/xbrl_validate.py
       - data/raw
-      - data/parsed/tables
+      - data/parsed
     outs:
       - data/xbrl_validation

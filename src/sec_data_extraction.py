@@ -6,6 +6,10 @@ from dotenv import load_dotenv
 from pathlib import Path
 from config import COMPANY_NAME, EMAIL
 
+# ensure raw folder always exists
+RAW_DIR = Path(__file__).resolve().parents[1] / "data" / "raw"
+RAW_DIR.mkdir(parents=True, exist_ok=True)
+
 load_dotenv()
 SEC_API_KEY = os.getenv('SEC_API_KEY')
 
@@ -21,7 +25,7 @@ def convert_htm_to_pdf(htm_url, output_filename):
     return False
 
 # Download XBRL files using sec-edgar-downloader
-def download_xbrl_from_metadata(metadata, save_dir="../data/raw"):
+def download_xbrl_from_metadata(metadata, save_dir=RAW_DIR):
     """
     Download XBRL files (XML, XSD, CAL, DEF, LAB, PRE) for a given filing metadata.
     """
@@ -49,7 +53,9 @@ def download_xbrl_from_metadata(metadata, save_dir="../data/raw"):
                 out_file = save_path / fname
                 out_file.write_bytes(r.content)
                 downloaded.append(out_file)
-                print(f"XBRL downloaded: {fname}")
+                print(f"XBRL downloaded: {fname} -> {out_file}")
+            else:
+                print(f"FAILED to download {fname} from {file_url} (status {r.status_code})")
     return downloaded
 
 # Get NVIDIA filing metadata
@@ -66,7 +72,7 @@ print("\nDownloading PDFs...")
 for metadata in metadatas:
     print(f"Processing: {metadata.form_type} from {metadata.filing_date}")
     print(metadata)
-    filename = f"../data/raw/NVIDIA_{metadata.form_type}_{metadata.filing_date}.pdf"
+    filename = RAW_DIR / f"NVIDIA_10-K_{metadata.filing_date}.pdf"
     
     success = convert_htm_to_pdf(metadata.primary_doc_url, filename)
     
