@@ -748,22 +748,44 @@ def process_pdf(pdf_path, output_dir=PARSED_DIR):
     }
 
 if __name__ == "__main__":
-    #raw_dir = Path("../data/raw")
-    pdf_files = sorted(RAW_DIR.glob("*.pdf"))
+    PROJECT_ID = "docai-test-473000"
+    LOCATION = "us"
+    PROCESSOR_ID = "cd1280bfb6a64860"
 
+    pdf_files = sorted(RAW_DIR.glob("*.pdf"))
     summaries = []
-    use_docai = False   # default OFF only open-source pipeline runs
 
     for pdf_file in pdf_files:
-        print(f"\n=== Processing {pdf_file.name} ===")
+        print(f"\n=== Processing {pdf_file.name} with BOTH pipelines ===")
 
         process = psutil.Process(os.getpid())
         mem_before = process.memory_info().rss / (1024 * 1024)
         start = time.time()
 
+        summary = {"pdf": pdf_file.stem, "output_dir": str(PARSED_DIR / pdf_file.stem)}
+
         try:
-            # ---- Open-source pipeline (always runs) ----
-            summary = process_pdf(pdf_file)
+            # ---- Always run open-source pipeline ----
+            open_source_summary = process_pdf(pdf_file)
+            summary["open_source"] = open_source_summary
+
+            # ---- Always run DocAI pipeline ----
+            if process_docai:
+                try:
+                    docai_summary = process_docai(
+                        pdf_file,
+                        PARSED_DIR,
+                        project_id=PROJECT_ID,
+                        location=LOCATION,
+                        processor_id=PROCESSOR_ID
+                    )
+                    summary["docai"] = docai_summary
+                except Exception as e:
+                    summary["docai_error"] = str(e)
+            else:
+                summary["docai_error"] = "docai_integration not available"
+
+            # ---- Runtime + memory ----
             duration = time.time() - start
             mem_after = process.memory_info().rss / (1024 * 1024)
             peak_mem = max(mem_before, mem_after)
@@ -773,32 +795,19 @@ if __name__ == "__main__":
                 "memory_mb": round(peak_mem, 2)
             })
 
-            # ---- Managed service (optional, Part 7) ----
-            if use_docai and process_docai:
-                try:
-                    docai_summary = process_docai(
-                        pdf_file,
-                        PARSED_DIR,
-                        project_id="docai-test-473000",
-                        location="us",
-                        processor_id="cd1280bfb6a64860"
-                    )
-                    summary["docai"] = docai_summary
-                except Exception as e:
-                    summary["docai_error"] = str(e)
-
             summaries.append(summary)
 
             print(f"Done: {summary['pdf']} "
-                  f"({summary['pages']} pages, {summary['tables']} tables, "
-                  f"time={summary['runtime_sec']}s, mem={summary['memory_mb']}MB)")
+                  f"({summary['open_source']['pages']} pages, "
+                  f"{summary['open_source']['tables']} tables, "
+                  f"time={summary['runtime_sec']}s, "
+                  f"mem={summary['memory_mb']}MB)")
         except Exception as e:
             print(f"Failed on {pdf_file.name}: {e}")
 
-    # Save combined summary
-    summary_path = PARSED_DIR / "summary_part7.json"
+    # ---- Save combined summary ----
+    summary_path = PARSED_DIR / "summary_dual.json"
     summary_path.write_text(json.dumps(summaries, indent=2, ensure_ascii=False), encoding="utf-8")
-
-
     print(f"\nAll done. Results saved to {summary_path}")
+
 
