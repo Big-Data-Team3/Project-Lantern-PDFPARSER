@@ -200,6 +200,14 @@ PROJECT-LANTERN-PDFPARSER/
 Our full step-by-step walkthrough is published here:  
 👉 [Open Codelab](https://codelabs-preview.appspot.com/?file_id=1Ks-2sDrYw8s72LZVT1aIB7zW4f0vxWpnEIMCNa2xSCE#0)
 
+## 🎥 Demo Video
+
+Watch the full walkthrough of **Project LANTERN** here:  
+
+👉 [YouTube Demo](https://youtu.be/emJRSmvVHEw)
+
+[![Project LANTERN Demo](https://img.youtube.com/vi/emJRSmvVHEw/0.jpg)](https://youtu.be/emJRSmvVHEw)
+
 
 ## Contributions
 
