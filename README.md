@@ -196,7 +196,7 @@ stages:
       - data/parsed
     outs:
       - data/xbrl_validation
-
+---
 
 ---
 
