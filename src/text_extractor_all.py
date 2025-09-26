@@ -22,6 +22,20 @@ from pathlib import Path
 from ocr_config import test_ocr_setup
 import psutil, os   # <-- NEW for memory tracking
 
+# === Optional DocAI import ===
+try:
+    from docai_integration import process_docai
+except ImportError:
+    process_docai = None
+
+# Toggle for DocAI fallback
+ENABLE_DOCAI = False
+
+# GCP config (only needed if ENABLE_DOCAI=True)
+PROJECT_ID = "docai-test-473000"
+LOCATION = "us"
+PROCESSOR_ID = "cd1280bfb6a64860"
+
 
 # =====================================================
 # Helpers
