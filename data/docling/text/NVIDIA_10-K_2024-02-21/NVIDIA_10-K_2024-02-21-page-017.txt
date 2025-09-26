@@ -9,18 +9,18 @@ particularly as they are based on estimates provided by various downstream parti
 capacity to increase production and we may not be able to obtain sufficient inventory to fill orders on a timely basis. Even if we are
 able to increase supply to meet customer demand, we may not be able to do so in a timely manner, or our contract manufacturers
 may experience supply constraints. If we cannot procure sufficient supply to meet demand or otherwise fail to fulfill our customers'
-ordersona timelybasis,oratall,ourcustomerrelationships couldbedamaged,wecould loserevenueandmarketshare and our
+ordersona timelybasis,oratall,ourcustomerrelationships couldbedamaged,wecouldloserevenueandmarketshare and our
 If weoverestimateourcustomers'futuredemandforourproducts,orifcustomerscancel ordeferordersorchoosetopurchasefrom
 continuetoimplement,asaresultofouroverestimationoffuturedemand，andwemayneedtocontinuethesereductions.Wehave
 had to increase prices for certain of our products as a result of our suppliers' increase in prices, and we may need to continue to do
 sofor other products in the future.We have also written down our inventory,incurred cancellationpenalties,andrecorded
-impairments and mayhave todosoin thefuture.These impactswere amplifiedby our placement of non-cancellable and non-
-returnablepurchasing termswell inadvanceofour historicallead timesandcouldbeexacerbated ifweneed tomakechanges to
+impairments and mayhave todosointhefuture.These impactswere amplifiedby ourplacement of non-cancellableand non-
+returnablepurchasing termswell inadvanceofourhistoricallead timesandcouldbeexacerbated ifweneedtomakechangesto
 the design of futureproducts.The risk of theseimpactshas increased and maycontinue to increase as ourpurchase obligations and
 negativelyimpactourgrossmarginsandfinancialresults.
 We build technology and introduce products for new and innovative use cases and applications, such as NVIDlA DGX Cloud
-services,NVIDlAAl Foundations,Omniverseplatform,LLMs,and generativeAImodels.Our demandestimatesfornewuse cases,
-significantrevenue from these use cases,applications,and services.Recent technologies,such as generative Al models,have
+services,NVIDlAAI Foundations,Omniverseplatform,LLMs,and generative Al models.Our demandestimatesfornewuse cases,
+significantrevenue from these use cases,applications,and services.Recent technologies，such as generative Al models,have
 emerged, and while they have driven increased demand for Data Center, the long-term trajectory is unknown.Because our products
 may be used in multiple use cases and applications, it is difficult for us to estimate with any reasonable degree of precision the
 impactofgenerativeAlmodelsonourreportedrevenueorforecasteddemand.Additionally,westartedshipping our CPUproduct

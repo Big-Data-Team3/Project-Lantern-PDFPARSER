@@ -4,15 +4,15 @@ GlobalTrade
 boardswhichincorporateA1o0orH1o0integratedcircuits.
 In July 2023,the USG informed us of an additional licensing requirement for a subset of A100 and H100 products destined to certain
 customers and other regions, including some countries in the Middle East.
-In October 2023, the UsG announced new and updated licensing requirements that became effective in our fourth quarter of fiscal
+In October 2023,the USG announced new and updated licensingrequirements that became effective in our fourth quarter of fiscal
 Emirates,and Vietnam,but excluding Israel)ofour products exceeding certainperformance thresholds,including A1o0,A8oo,H1oo,
 H800, L4, L40, L40S and RTX 4090. The licensing requirements als0 apply to the export of products exceeding certain performance
 23,2023, the USG informed us the licensing requirements were effective immediately for shipments of our A100,A800,H100, H800,
 and L40S products. Our sales to China decreased as a percentage of total Data Center revenue from 19% in fiscal year 2023 to
 14% in fiscal year 2024.
 WehavenotreceivedlicensestoshiptheserestrictedproductstoChina.WeareworkingtoexpandourDataCenterproduct
-portfoliotooffer newsolutions,including thoseforwhichtheUSGdoesnotrequire a license oradvance noticebeforeeach
-shipment.Wehavestarted toshipalternativestotheChinamarketinsmallvolumes.Chinarepresentedamid-singledigit
+portfoliotooffer newsolutions,including thoseforwhichtheUSGdoesnotrequire alicense oradvance noticebefore each
+shipment.WehavestartedtoshipalternativestotheChinamarketinsmallvolumes.Chinarepresentedamid-singledigit
 China tobe in a similar range in the first quarter of fiscalyear 2025.To the extent that a customer requires products covered by the
 licensing requirements, we may seek a license for the customer but have no assurance that the UsG will grant such a license, or
 Ourcompetitivepositionhasbeenharmed,and ourcompetitiveposition andfutureresultsmaybefurtherharmed inthelongterm,if

@@ -23,7 +23,7 @@ foreign income tax contingenciesbased onour estimate of whether,and the extent t
 determine that payment of these amounts is unnecessary or if the recorded tax liability is less than our current assessment, we may
 As ofJanuary28,2024,wehad avaluationallowanceof$1.6billionrelated tocapital losscarryforwards,andcertainstate and other
 deferred tax assets that management determined are not likely to be realized due，in part,to jurisdictional projections of future
-taxableincome,includingcapitalgains.Totheextentrealizationof thedeferred taxassetsbecomesmore-likely-than-not,wewould
+taxableincome,includingcapitalgains.Totheextentrealizationofthedeferredtaxassetsbecomesmore-likely-than-not,wewould
 We recognize the benefit from a tax position only if it is more-likely-than-not that the position would be sustained upon audit based
 solelyon the technicalmeritsof thetaxposition.Ourpolicyistoincludeinterestandpenaltiesrelated tounrecognized taxbenefits
 asacomponentofincometaxexpense.
@@ -32,7 +32,7 @@ Basic net income per share is computed using the weighted average number of comm
 outstanding during the period,using the treasury stockmethod.Any anti-dilutive effect of equity awards outstanding is not included
 in thecomputationofdilutednetincomepershare.
 CashandCashEquivalentsandMarketableSecurities
-Weconsiderallhighlyliquidinvestmentsthatarereadilyconvertibleintocashandhaveanoriginalmaturityofthreemonthsorless
+Weconsiderallhighlyliquidinvestments thatarereadilyconvertibleintocashandhaveanoriginalmaturityof threemonthsorless
 at thetimeofpurchasetobecashequivalents.Marketablesecuritiesconsistofhighlyliquiddebt investmentswithmaturities of
 Weclassifyourcashequivalentsandmarketablesecuritiesrelatedtodebtsecuritiesatthedateofacquisitionasavailable-for-sale.
 debtsecuritiesincludesaccruedinterest.Realizedgainsandlossesonthesaleofmarketablesecuritiesaredeterminedusing the

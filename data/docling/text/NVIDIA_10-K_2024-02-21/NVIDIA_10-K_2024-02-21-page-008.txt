@@ -5,7 +5,7 @@ fromtheshifttoautonomousdriving.
 technology.
 SalesandMarketing
 Our worldwide sales and marketing strategy is key to achieving our objective of providing markets with our high-performance and
-efficient computing platforms andsoftware.Our sales and marketing teams,located across our globalmarkets,work closelywith
+efficient computing platforms andsoftware.Our sales and marketing teams,located across our global markets,work closelywith
 specialized CSPs,OEMs,ODMs,Systemintegrators,independent software vendors,or ISVs,add-inboard manufacturers,orAIBs,
 Membersofoursalesteamhavetechnicalexpertiseandproductandindustryknowledge.Wealsoemployateamofapplication
 designs that incorporate our platforms. For example,our solution architects work with CSPs to provide pre-sales assistance to
@@ -25,12 +25,12 @@ Manufacturing
 We utilize a fabless and contracting manufacturing strategy,whereby we employ and partner with key suppliers for all phases of the
 manufacturing process, including wafer fabrication, assembly, testing, and packaging. We use the expertise of industry-leading
 suppliers that arecertifiedby theInternationalOrganizationfor Standardization insuchareas asfabrication,assembly,quality
-controland assurance,reliability,and testing.Additionally,we can avoidmany of the significant costs and risks associatedwith
+controland assurance,reliability,and testing.Additionally,we canavoid many of the significant costs and risks associatedwith
 owning and operating manufacturing operations.While we may directly procure certainraw materials used in the production of our
 materials used in the production of our products. As a result, we can focus our resources on product design, quality assurance,
 components in advance of our historical lead times, pay premiums, or provide deposits to secure future supply and capacity and
 mayneedtocontinuetodoso.
-manufacturingcapacityalignedwithgrowingcustomer demand.OursupplychainisconcentratedintheAsia-Pacificregion.We
+manufacturing capacityalignedwithgrowing customer demand.Oursupplychainisconcentrated in theAsia-Pacificregion.We
 utilize foundries, such as Taiwan Semiconductor Manufacturing Company Limited, or TSMC, and Samsung Electronics Co.,Ltd., or
 Samsung, to produce our semiconductor wafers. We purchase memory from Micron Technology, Inc., SK Hynix Inc., and Samsung.
 We utilize CoWoS technology for semiconductor packaging. We engage with independent subcontractors and contract
