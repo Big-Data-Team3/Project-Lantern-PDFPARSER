@@ -6,7 +6,7 @@ Project Lantern is a **modular, reproducible pipeline** for parsing SEC 10-K fil
 It integrates:  
 - **Custom parser** (pdfplumber, Camelot, PyMuPDF, OCR with Tesseract)  
 - **Docling with RapidOCR fallback**  
-- **Google DocAI (batch 15 pages)**  
+- **Google DocAI (triggered within text_extractor_all)**  
 
 The outputs are benchmarked against **ground-truth datasets** and validated with **XBRL filings**. Tests ensure regression checks on accuracy.  
 
@@ -16,9 +16,9 @@ The outputs are benchmarked against **ground-truth datasets** and validated with
 
 - **Pipeline (DVC)**: run with `dvc repro`  
 - **Ground-truth**: `data/ground_truth` for evaluation  
-- **Evaluation**: `error_rate_detection.py` generates metrics  
-- **Tests**: `pytest` with `error_test.py`  
-- **Validation**: `xbrl_validate.py` cross-verifies against SEC XBRL  
+- **Evaluation**: `src/error_rate_detection.py` generates metrics  
+- **Tests**: `pytest` with `tests/error_test.py`  
+- **Validation**: `src/xbrl_validate.py` cross-verifies against SEC XBRL  
 
 ---
 
@@ -82,6 +82,7 @@ GOOGLE_APPLICATION_CREDENTIALS=secrets/gcloud-key.json
 - **Text extraction** → pdfplumber + OCR fallback (`ocr_config.py`).  
 - **Table extraction** → Camelot + pdfplumber fallback.  
 - **Layout extraction** → PyMuPDF with bounding boxes and fonts.  
+- **DocAI integration** → triggered inside parser for comparison.  
 - Outputs: `.txt`, `.csv`, `.json`, `.md`.  
 
 ### Step 4: Docling (`docling_rapidocr_final.py`)
@@ -92,9 +93,8 @@ GOOGLE_APPLICATION_CREDENTIALS=secrets/gcloud-key.json
 - Provenance in `.jsonl` and Markdown.  
 - Exports combined `.json`, `.md`, `.txt`.  
 
-### Step 7: Managed Service (`docai_integration.py`)
-- Send batches of ≤15 pages to **Google DocAI**.  
-- Saves tables, metadata, text, raw JSON.  
+### Step 7: Managed Service (inside `text_extractor_all.py`)
+- DocAI triggered within parsing stage for baseline outputs.  
 
 ### Step 8: Orchestration
 - DVC pipeline orchestrates all stages.  
@@ -112,6 +112,53 @@ GOOGLE_APPLICATION_CREDENTIALS=secrets/gcloud-key.json
 - Parse XBRL facts.  
 - Match against extracted tables with scaling/sign handling.  
 - Reports saved in `data/xbrl_validation/`.  
+
+---
+
+## ⚙️ DVC Pipeline
+
+Our project is orchestrated with **Data Version Control (DVC)** to ensure reproducibility of all stages.  
+The pipeline runs end-to-end from downloading raw SEC filings to validation against XBRL.
+
+### Pipeline Stages
+```yaml
+stages:
+  download:
+    cmd: python src/sec_data_extraction.py
+    deps:
+      - src/sec_data_extraction.py
+      - src/config.py
+    outs:
+      - data/raw
+
+  parse:
+    cmd: python src/text_extractor_all.py
+    deps:
+      - src/text_extractor_all.py
+      - src/ocr_config.py
+      - src/docai_integration.py
+      - data/raw
+    outs:
+      - data/parsed
+
+  evaluate:
+    cmd: python src/error_rate_detection.py
+    deps:
+      - src/error_rate_detection.py
+      - data/parsed
+      - data/ground_truth
+    outs:
+      - tests/metrics_custom_only.json
+
+  xbrl_validate:
+    cmd: python src/xbrl_validate.py
+    deps:
+      - src/xbrl_validate.py
+      - data/raw
+      - data/parsed
+    outs:
+      - data/xbrl_validation
+```
 
 ---
 
@@ -140,63 +187,12 @@ PROJECT-LANTERN-PDFPARSER/
 ├── secrets/
 │   └── gcloud-key.json (NOT committed, add to .gitignore)
 ├── reports/
-│   └──benchmark_report.md
+│   └── benchmark_report.md
 ├── dvc.yaml
 ├── requirements.txt
 ├── README.md
 └── .env.example
 ```
-## ⚙️ DVC Pipeline
-
-Our project is orchestrated with **Data Version Control (DVC)** to ensure reproducibility of all stages.  
-The pipeline runs end-to-end from downloading raw SEC filings to validation against XBRL.
-
-### Pipeline Stages
-```yaml
-stages:
-  download:
-    cmd: python src/sec_data_extraction.py
-    deps:
-      - src/sec_data_extraction.py
-      - src/config.py
-    outs:
-      - data/raw
-
-  parse:
-    cmd: python src/text_extractor.py
-    deps:
-      - src/text_extractor.py
-      - src/ocr_config.py
-      - data/raw
-    outs:
-      - data/parsed
-
-  docai:
-    cmd: python src/docai_integration.py
-    deps:
-      - src/docai_integration.py
-      - data/raw
-    outs:
-      - data/parsed/*/docai
-
-  benchmarks:
-    cmd: python src/benchmark_runner.py
-    deps:
-      - src/benchmark_runner.py
-      - data/parsed
-    outs:
-      - reports/benchmarks.md
-      - data/benchmarks/summary_dual.json
-
-  xbrl_validate:
-    cmd: python src/xbrl_validate.py
-    deps:
-      - src/xbrl_validate.py
-      - data/raw
-      - data/parsed
-    outs:
-      - data/xbrl_validation
-
 
 ---
 
