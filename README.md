@@ -213,9 +213,9 @@ Watch the full walkthrough of **Project LANTERN** here:
 
 | Member                        | Contribution                                                                 |
 | ----------------------------- | --------------------------------------------------------------------------- |
-| **Krittivasan V Jagannathan** | Custom parser (text, OCR, tables, layout — Parts 1–3, 5–6), benchmarking     |
-| **Sthavir Gokul Soroff**      | SEC ingestion + XBRL download (Part 0, 11), validation & testing             |
-| **Pooja Subramanya Raghu**    | Docling + DocAI integration (Parts 4, 7), DVC orchestration, evaluation flow |
+| **Krittivasan V Jagannathan** | 33% - Custom parser (text, OCR, tables, layout — Parts 1–3, 5–6), benchmarking     |
+| **Sthavir Gokul Soroff**      | 33% - SEC ingestion + XBRL download (Part 0, 11), validation & testing             |
+| **Pooja Subramanya Raghu**    | 33% - Docling + DocAI integration (Parts 4, 7), DVC orchestration, evaluation flow |
 
 ---
 
