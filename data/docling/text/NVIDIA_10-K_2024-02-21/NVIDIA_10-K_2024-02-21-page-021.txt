@@ -1,14 +1,13 @@
 TableofContents
 past and may happen in the future), our response may be limited or more difficult because we may not have direct access to their
-s
 andtheirdatacouldbeaffected,whichcouldresult inpotentialliabilityandharmourbusiness.
 To defend against security incidents,we must continuously engineer more secure products and enhance security and reliability
 training programs and security awareness initiatives, designed to ensure our suppliers have appropriate security measures in place,
-and continue to meet the evolving security requirements of our customers， applicable industry standards, and government
+and continue to meet the evolving security requirements of our customers，applicable industry standards， and government
 regulations. While we invest in training programs and security awareness initiatives and take steps to detect and remediate certain
 vulnerabilitiesthatwehaveidentified,wemaynotalwaysbeabletopreventthreatsordetectandmitigateallvulnerabilitiesinour
 security controls,systems orsoftware,including third-partysoftwarewe haveinstalled，assuchthreats and techniqueschange
-frequently and may not be detected until after a security incident has occurred.Further, we may experience delays in developing and
+frequently and may not be detected untilaftera security incident hasoccurred.Further,we may experience delays in developing and
 financial harm, and if exploited, these vulnerabilities could result in a security incident.
 We hold confidential, sensitive,personal and proprietary information, including information from partners and customers. Breaches
 of our security measures,along with reported or perceived vulnerabilities or unapproved dissemination of proprietary information or
@@ -25,13 +24,13 @@ stockpriceandreputation.Applicabledataprivacyandsecurityobligationsmayrequireust
 couldbeusedtoharmourbusiness.
 Businessdisruptionscouldharmouroperations,leadtoadeclineinrevenueandincreaseourcosts.
 Ourworldwideoperationscouldbedisruptedbynaturaldisasters andextremeweatherconditions,power orwatershortages,
-telecommunicationsfailures,supplierdisruptions,terroristattacks,acts ofviolence,politicaland/or civilunrest,acts ofwar or other
-military actions,epidemics orpandemics,abruptregulatory deterioration,and othernatural or man-made disasters and catastrophic
+telecommunicationsfailures,supplier disruptions,terrorist attacks,acts ofviolence,political and/or civil unrest, acts ofwar or other
+military actions,epidemics orpandemics,abruptregulatorydeterioration,and othernatural or man-made disasters andcatastrophic
 developmentactivitiesarelocatedinCalifornia，andothercriticalbusinessoperations，finishedgoodsinventoryandsomeofour
-suppliersarelocated inAsia,makingouroperationsvulnerabletonaturaldisasterssuchasearthquakes,wildfiresorotherbusiness
+suppliersarelocatedinAsia,makingouroperationsvulnerabletonaturaldisasterssuchasearthquakes,wildfiresorotherbusiness
 uscriticalinfrastructureservicesforITandresearchanddevelopmentsystemsandpersonnel.Ourbusinesscontinuityanddisaster
 beyond our control, can increase economic volatility globally. Political instability, changes in government or adverse political
-results of operations.Worldwide geopolitical tensions and conflicts,includingbut not limited to China,HongKong,Israel,Korea and
+results of operations.Worldwide geopolitical tensions and conflicts,includingbut notlimited to China,HongKong,Israel,Korea and
 Taiwan where the manufacture of our product components and final assembly of our products are concentrated may result in
 changing regulatory requirements, and other disruptions that could impact our operations and operating strategies, product demand,
 access to global markets,hiring,and profitability. For example,other countries have restricted and may continue in the future to

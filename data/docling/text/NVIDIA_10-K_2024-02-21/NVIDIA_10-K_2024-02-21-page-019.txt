@@ -1,7 +1,7 @@
 Tableof Contents
 undetecteddefectsanderrors,orreflectunintendedbias.Althougharrangementswithcomponentprovidersmaycontainprovisions
 occur from timeto time.Somefailures in ourproducts orserviceshavebeen inthepast and may inthefuturebe onlydiscovered
-afteraproductorservicehasbeenshippedorused.Undiscoveredvulnerabilitiesinourproductsorservicescouldresult inlossof
+afteraproductorservicehasbeenshippedor used.Undiscoveredvulnerabilities inourproducts orservicescouldresult inloss of
 programs that could attack our products or services. Defects or failure of our offerings to perform to specifications could lead to
 substantial damage to the products in which our offerings have been integrated by OEMs, ODMs, AIBs and automotive
 manufacturers and tier 1 automotive suppliers, and to the user of such end product. Any such defect may cause us to incur
@@ -12,9 +12,9 @@ existing and prospective customers and partners and consumers' perceptions of ou
 or consumers, including for costs to repair or replace products in the field or in connection with indemnification obligations, or pay
 finesimposed byregulatory agencies.
 For example, in fiscal year 2023, a defect was identified in a third-party component embedded in certain Data Center products. This
-defect has had,andother defects mayinthefuturehave，an adverse effect on our cost and supplyof components and finished
+defect hashad,andotherdefectsmayinthefuturehave,anadverse effect onourcost and supplyof components and finished
 goods.These costs couldbe significantinfutureperiods.Werecorded a netwarranty liabilityduringfiscalyear2023primarilyin
-connection with this defect.While we believe we have accurately recorded for warranty obligations,we may need to record
+connection with this defect.while we believe we have accurately recorded for warranty obligations,we may need torecord
 additionalamountsinthefutureifourestimateprovestobeincorrect.Ingeneral,ifaproductliabilityclaimregardinganyofour
 supply chain, the cost of defending the claim could be significant and would divert the efforts of our technical and management
 RisksRelatedtoOurGlobalOperatingBusiness

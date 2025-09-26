@@ -6,7 +6,7 @@ expose us to liability.
 financial harm and liability.
 reputationalorfinancialharmandliabilityandmaycauseustoincurcoststoresolvesuchissues.WeareincreasinglybuildingAl
 capabilities andprotections into many of our products andservices,and we alsooffer stand-alone Alapplications.Alposes
-emerging legal,social，and ethicalissues and presents risks and challenges that could affectits adoption，and therefore our
+emerging legal,social，and ethicalissues and presents risks and challenges that could affect its adoption,andtherefore our
 business. If we enable or offer solutions that draw controversy due to their perceived or actual impact on society, such as Al
 solutions that have unintended consequences, infringe copyright or rights of publicity, or are controversial because of their impact on
 human rights, privacy, employment or other social, economic or political issues, or if we are unable to develop effective internal
@@ -24,12 +24,12 @@ us,ouremployeesorpartiesthatwehaveagreed toindemnify.Anunfavorablerulingcould in
 of one or more patents, indemnification of third parties, payment of lost profits, or injunctive relief. Claims that our products or
 processes infringe the IP rights of others, regardless of their merit, could cause us to incur significant costs to respond to, defend,
 countersuits as a result. If infringement claims are made against us or our products are found to infringe a third party's IP, we or one
-of ourindemniteesmayhavetoseek alicensetothe thirdparty's IPrights.Ifwe oroneofourindemnitees is unable toobtainsuch a
+of ourindemniteesmayhavetoseek a licensetothe thirdparty's IP rights.If we oroneofourindemnitees is unable toobtainsuch a
 these arrangements are not concluded on commercially reasonable terms, our business could be negatively impacted. Furthermore,
 results.
 laws of the countries in which we operate to protect our IP. Foreign laws may not protect our products or IP rights to the same extent
-as United Stateslaw.This makes the possibility of piracy of our technology and products more likely.The theft orunauthorized use
-or publication of our tradesecrets and other confidential information couldharm our competitiveposition andreduce acceptance of
+as United Stateslaw.Thismakes the possibility ofpiracy of our technology and products more likely.The theft orunauthorized use
+or publication of our trade secrets and other confidential information could harm our competitive position and reduce acceptance of
 our products;as a result, the value of our investment in research and development, product development and marketing could be
 reduced.We also mayface risks to our IP if our employees are hired by competitors.We continuously assess whether and where to
 seekformalprotectionforexistingandnewinnovationsandtechnologiesbutcannotbecertainwhetherourapplicationsforsuch
